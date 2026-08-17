@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f8fa;
+  --foreground: #0a0e14;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-mono-tech: var(--font-jetbrains-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer utilities {
+  .tech-grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(10, 14, 20, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 14, 20, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .fade-up {
+    animation: fade-up 0.7s ease-out both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
