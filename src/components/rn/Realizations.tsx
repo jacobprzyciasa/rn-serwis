@@ -39,13 +39,16 @@ export default function Realizations() {
         <Reveal>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="max-w-2xl">
-              <span className="font-mono-tech text-[11px] text-[#0891B2] tracking-wider">[SEC: 06 · REALIZACJE]</span>
+              <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
+              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+                REALIZACJE
+              </span>
+            </div>
               <h2 className="mt-3 text-[#0A0E14] font-extrabold tracking-tight text-3xl lg:text-[2.6rem] leading-[1.1]">
                 Wybrane realizacje
               </h2>
               <p className="mt-4 text-[#5A6770] text-lg leading-relaxed">
-                Przykłady naprawionych urządzeń. Docelowo miejsce na prawdziwe zdjęcia
-                z serwisu.
+                Zobacz najciekawsze realizacje mojego serwisu!
               </p>
             </div>
           </div>
@@ -82,12 +85,6 @@ export default function Realizations() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={0.1}>
-          <p className="mt-8 text-center text-[#8A95A0] text-[13px] font-mono-tech">
-            Miejsce na kolejne realizacje — zdjęcia zostaną zastąpione dokumentacją z serwisu.
-          </p>
-        </Reveal>
       </div>
     </section>
   );

@@ -1,5 +1,7 @@
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import Reveal from "./Reveal";
+import Image from "next/image";
+import fire from "../../../public/fire.jpg";
 
 const POWAIR = "https://media.base44.com/images/public/6a82d6c0df5c8c71096f3b12/8459163b2_generated_b6632444.png";
 
@@ -15,33 +17,34 @@ export default function PowAirBox() {
           <Reveal>
             <div className="relative aspect-[3/2] rounded-2xl overflow-hidden border border-black/10">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={POWAIR}
-                alt="Urządzenie powAirBox — specjalistyczna naprawa dla straży pożarnej"
+              <Image
+                src={fire}
+                alt="Urządzenie PowAirBox — specjalistyczna naprawa dla straży pożarnej"
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-white/85 backdrop-blur border border-[#0891B2]/30 font-mono-tech text-[10px] text-[#0891B2]">
-                POWAIRBOX · FIRE RESCUE UNIT
-              </div>
             </div>
           </Reveal>
 
           <Reveal delay={0.15}>
             <div>
-              <span className="font-mono-tech text-[11px] text-[#0891B2] tracking-wider">[SEC: 04 · SPECJALIZACJA]</span>
+              <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
+              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+                PAŃSTWOWA STRAŻ POŻARNA
+              </span>
+            </div>
               <h2 className="mt-3 text-[#0A0E14] font-extrabold tracking-tight text-3xl lg:text-[2.6rem] leading-[1.1]">
-                Naprawa urządzeń powAirBox dla straży pożarnej
+                Naprawa urządzeń PowAirBox dla straży pożarnej
               </h2>
               <p className="mt-6 text-[#5A6770] text-lg leading-relaxed">
-                Posiadamy duże doświadczenie w naprawie urządzeń powAirBox
-                wykorzystywanych przez jednostki straży pożarnej. Jesteśmy jednym z
+                Posiadam duże doświadczenie w naprawie systemu PowAirBox
+                wykorzystywanych przez jednostki straży pożarnej. Jestem jednym z
                 niewielu serwisów oferujących naprawę tego typu urządzeń.
               </p>
 
               <div className="mt-7 flex items-center gap-3 p-4 rounded-lg border border-[#0891B2]/20 bg-[#0891B2]/5">
                 <ShieldCheck className="w-6 h-6 text-[#0891B2] shrink-0" strokeWidth={1.8} />
                 <p className="text-[#1A2330] text-[15px] font-medium">
-                  Jeden z nielicznych serwisów w Polsce obsługujących jednostki Straży Pożarnej.
+                  Jeden z nielicznych serwisów w Polsce obsługujących jednostki Państwowej Straży Pożarnej.
                 </p>
               </div>
 
@@ -49,7 +52,7 @@ export default function PowAirBox() {
                 href="#kontakt"
                 className="mt-8 inline-flex items-center gap-2 px-6 py-4 rounded-md bg-[#0891B2] text-white font-bold text-[15px] hover:bg-[#0E7A95] active:scale-[0.98] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.22)]"
               >
-                Zapytaj o naprawę powAirBox
+                Zapytaj o naprawę PowAirBox
                 <ArrowRight className="w-5 h-5" strokeWidth={2.4} />
               </a>
             </div>

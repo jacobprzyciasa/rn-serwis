@@ -9,7 +9,11 @@ export default function Reviews() {
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <Reveal>
           <div className="text-center max-w-2xl mx-auto">
-            <span className="font-mono-tech text-[11px] text-[#0891B2] tracking-wider">[SEC: 07 · OPINIE]</span>
+           <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
+              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+                OPINIE
+              </span>
+            </div>
             <div className="mt-4 flex items-center justify-center gap-2">
               <span className="text-[#0A0E14] font-extrabold text-4xl lg:text-5xl">5,0</span>
               <div className="flex flex-col items-start">
@@ -22,7 +26,7 @@ export default function Reviews() {
               </div>
             </div>
             <h2 className="mt-6 text-[#0A0E14] font-extrabold tracking-tight text-3xl lg:text-[2.4rem] leading-[1.1]">
-              Opinie naszych klientów
+              Co mówią klienci?
             </h2>
           </div>
         </Reveal>
@@ -31,7 +35,7 @@ export default function Reviews() {
           <div className="mt-12 p-6 lg:p-8 rounded-xl border border-black/8 bg-[#F1F4F6] text-center">
             <p className="text-[#5A6770] text-[15px] leading-relaxed max-w-xl mx-auto">
               Tu pojawią się opinie klientów z Google. Nie publikujemy wymyślonych
-              recenzji — prawdziwe opinie zostaną dodane wkrótce.
+              recenzji - prawdziwe opinie zostaną dodane wkrótce.
             </p>
             <a
               href={GOOGLE_REVIEWS_URL}

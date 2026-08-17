@@ -65,12 +65,16 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="font-mono-tech text-[11px] text-[#0891B2] tracking-wider">[SEC: 09 · KONTAKT]</span>
+            <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
+              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+                KONTAKT
+              </span>
+            </div>
             <h2 className="mt-3 text-[#0A0E14] font-extrabold tracking-tight text-3xl lg:text-[2.6rem] leading-[1.1]">
               Zapytaj o naprawę
             </h2>
             <p className="mt-4 text-[#5A6770] text-lg leading-relaxed">
-              Opisz urządzenie i usterkę. Odpowiemy telefonicznie lub e-mailem.
+              Opisz urządzenie i usterkę. Odpowiem telefonicznie lub e-mailem.
             </p>
           </div>
         </Reveal>
@@ -105,12 +109,12 @@ export default function Contact() {
                     </label>
                     <label className="block">
                       <span className="font-mono-tech text-[10px] text-[#5A6770] uppercase tracking-wider">Telefon</span>
-                      <input className={INPUT_CLS} value={form.phone} onChange={set("phone")} placeholder="600 000 000" inputMode="tel" required />
+                      <input className={INPUT_CLS} value={form.phone} onChange={set("phone")} placeholder="123 456 789" inputMode="tel" required />
                     </label>
                   </div>
                   <label className="block">
                     <span className="font-mono-tech text-[10px] text-[#5A6770] uppercase tracking-wider">E-mail</span>
-                    <input className={INPUT_CLS} value={form.email} onChange={set("email")} placeholder="jan@example.com" type="email" required />
+                    <input className={INPUT_CLS} value={form.email} onChange={set("email")} placeholder="jan@kowalski.com" type="email" required />
                   </label>
                   <label className="block">
                     <span className="font-mono-tech text-[10px] text-[#5A6770] uppercase tracking-wider">Rodzaj urządzenia</span>
@@ -141,9 +145,7 @@ export default function Contact() {
                       required
                     />
                     <span className="text-[12.5px] text-[#5A6770] leading-relaxed">
-                      Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
-                      obsługi zapytania zgodnie z polityką prywatności.{" "}
-                      <span className="text-[#7A8590]">(RODO)</span>
+                      Wyrażam zgodę na wykorzystanie danych przesłanych w formularzu w zakresie potrzebnym do realizacji usługi.{" "}
                     </span>
                   </label>
 

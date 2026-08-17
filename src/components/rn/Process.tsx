@@ -1,9 +1,9 @@
 import Reveal from "./Reveal";
 
 const STEPS = [
-  { n: "01", title: "Kontakt", desc: "Opisz urządzenie i problem — telefonicznie lub przez formularz." },
-  { n: "02", title: "Diagnoza", desc: "Sprawdzamy urządzenie i określamy przyczynę usterki." },
-  { n: "03", title: "Naprawa", desc: "Naprawiamy lub regenerujemy uszkodzone elementy." },
+  { n: "01", title: "Kontakt", desc: "Opisz urządzenie i problem - telefonicznie lub przez formularz." },
+  { n: "02", title: "Diagnoza", desc: "Sprawdzam urządzenie i określam przyczynę usterki." },
+  { n: "03", title: "Naprawa", desc: "Naprawiam lub regeneruję uszkodzone elementy." },
   { n: "04", title: "Odbiór / wysyłka", desc: "Odbierasz urządzenie osobiście lub otrzymujesz je przesyłką." },
 ];
 
@@ -13,7 +13,11 @@ export default function Process() {
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="font-mono-tech text-[11px] text-[#0891B2] tracking-wider">[SEC: 05 · PROCES]</span>
+            <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
+              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+                PROCES
+              </span>
+            </div>
             <h2 className="mt-3 text-[#0A0E14] font-extrabold tracking-tight text-3xl lg:text-[2.6rem] leading-[1.1]">
               Jak wygląda naprawa?
             </h2>

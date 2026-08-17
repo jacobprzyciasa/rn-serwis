@@ -1,28 +1,24 @@
 import { Clock, Wrench, Package, MapPin, type LucideIcon } from "lucide-react";
 import Reveal from "./Reveal";
 
-const ITEMS: { icon: LucideIcon; ref: string; title: string; desc: string }[] = [
+const ITEMS: { icon: LucideIcon; title: string; desc: string }[] = [
   {
     icon: Clock,
-    ref: "01.A",
     title: "25 lat doświadczenia",
     desc: "Wiedza zdobywana przez lata pracy z elektroniką użytkową i przemysłową.",
   },
   {
     icon: Wrench,
-    ref: "01.B",
     title: "Nietypowe naprawy",
-    desc: "Podejmujemy się napraw urządzeń, których nie obsługują standardowe serwisy.",
+    desc: "Podejmuję się napraw urządzeń, których nie obsługują standardowe serwisy.",
   },
   {
     icon: Package,
-    ref: "01.C",
     title: "Naprawy wysyłkowe",
     desc: "Wyślij urządzenie z dowolnego miejsca w Polsce.",
   },
   {
     icon: MapPin,
-    ref: "01.D",
     title: "Dojazd do klienta",
     desc: "Sosnowiec i okoliczne miasta.",
   },
@@ -40,7 +36,6 @@ export default function USP() {
                   <span className="grid place-items-center w-11 h-11 rounded-lg border border-black/10 text-[#0891B2] group-hover:border-[#0891B2]/50 group-hover:bg-[#0891B2]/5 transition-all">
                     <it.icon className="w-5 h-5" strokeWidth={1.7} />
                   </span>
-                  <span className="font-mono-tech text-[10px] text-[#8A95A0]">[REF: {it.ref}]</span>
                 </div>
                 <h3 className="text-[#0A0E14] font-semibold text-[17px] mb-2">{it.title}</h3>
                 <p className="text-[#5A6770] text-sm leading-relaxed">{it.desc}</p>

@@ -1,5 +1,7 @@
 import { MapPin, Phone, ShieldCheck } from "lucide-react";
 import { PHONE, PHONE_TEL } from "./constants";
+import Image from "next/image";
+import Logo from "../../../public/rn_final_combo_white_trans.png"
 
 const LINKS = [
   { label: "Start", href: "#start" },
@@ -20,15 +22,9 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="grid place-items-center w-9 h-9 rounded-md border border-[#0891B2]/40 bg-white">
-                <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="#0891B2" strokeWidth="1.6">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M7 12h3l1.5-3 1.5 6 1.5-3h3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-              <span className="text-[#0A0E14] font-bold text-[15px]">RN Serwis Elektroniki</span>
-            </div>
+            <a href="/" className="flex items-center gap-2.5 group" aria-label="RN Serwis Elektroniki — strona główna">
+            <Image src={Logo} alt="Logo" className="w-30 invert-100" />
+          </a>
             <p className="mt-4 text-[#5A6770] text-sm leading-relaxed max-w-xs">
               Serwis i naprawa elektroniki z 25-letnim doświadczeniem. Sterowniki,
               moduły, falowniki, zasilacze i urządzenia nietypowe.
@@ -52,7 +48,7 @@ export default function Footer() {
 
           {/* Nav */}
           <div>
-            <h4 className="font-mono-tech text-[11px] text-[#0891B2] uppercase tracking-wider">Nawigacja</h4>
+            <h4 className="font-mono-tech text-[11px] text-[#0891B2] uppercase tracking-wider">Realizacje</h4>
             <ul className="mt-4 space-y-2.5">
               {LINKS.map((l) => (
                 <li key={l.href}>
@@ -66,7 +62,7 @@ export default function Footer() {
 
           {/* Mapy / opinie / RODO */}
           <div>
-            <h4 className="font-mono-tech text-[11px] text-[#0891B2] uppercase tracking-wider">Zasoby</h4>
+            <h4 className="font-mono-tech text-[11px] text-[#0891B2] uppercase tracking-wider">Sprawdź mnie</h4>
             <ul className="mt-4 space-y-2.5">
               <li>
                 <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-[#5A6770] text-sm hover:text-[#0A0E14] transition-colors">
@@ -78,22 +74,17 @@ export default function Footer() {
                   Google Reviews
                 </a>
               </li>
-              <li>
-                <a href="#kontakt" className="text-[#5A6770] text-sm hover:text-[#0A0E14] transition-colors">
-                  Polityka prywatności (RODO)
-                </a>
-              </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-7 border-t border-black/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[#7A8590] text-[12.5px] font-mono-tech">
-            © RN Serwis Elektroniki — wszelkie prawa zastrzeżone
+            © RN Serwis Elektroniki - wszelkie prawa zastrzeżone
           </p>
           <p className="flex items-center gap-2 text-[#7A8590] text-[12px]">
             <ShieldCheck className="w-3.5 h-3.5 text-[#0891B2]/70" strokeWidth={1.8} />
-            Dane z formularza przetwarzane zgodnie z RODO
+            Podanie danych w formularzu jest dobrowolne
           </p>
         </div>
       </div>

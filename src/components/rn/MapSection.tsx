@@ -11,9 +11,13 @@ export default function MapSection() {
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="font-mono-tech text-[11px] text-[#0891B2] tracking-wider">[SEC: 10 · LOKALIZACJA]</span>
+            <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
+              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+                LOKALIZACJA
+              </span>
+            </div>
             <h2 className="mt-3 text-[#0A0E14] font-extrabold tracking-tight text-3xl lg:text-[2.6rem] leading-[1.1]">
-              Znajdź nas w Sosnowcu
+              Znajdź serwis
             </h2>
           </div>
         </Reveal>
@@ -54,7 +58,7 @@ export default function MapSection() {
                   <Navigation className="w-5 h-5 text-[#0891B2] shrink-0 mt-0.5" strokeWidth={1.8} />
                   <div>
                     <p className="text-[#5A6770] text-sm">Dojazd</p>
-                    <p className="text-[#0A0E14] text-[16px] mt-0.5">Możliwy dojazd do klienta — Sosnowiec i okolice.</p>
+                    <p className="text-[#0A0E14] text-[16px] mt-0.5">Możliwy dojazd do klienta - Sosnowiec i okolice.</p>
                   </div>
                 </div>
               </div>

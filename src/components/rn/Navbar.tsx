@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { PHONE, PHONE_TEL } from "./constants";
+import Image from "next/image";
+import Logo from "../../../public/rn_final_combo_white_trans.png";
 
 const LINKS = [
   { label: "Start", href: "#start" },
@@ -41,17 +43,8 @@ export default function Navbar() {
         }`}
       >
         <nav className="max-w-7xl mx-auto px-5 lg:px-8 h-16 lg:h-20 flex items-center justify-between">
-          <a href="#start" className="flex items-center gap-2.5 group" aria-label="RN Serwis Elektroniki — strona główna">
-            <span className="relative grid place-items-center w-9 h-9 rounded-md border border-[#0891B2]/40 bg-white">
-              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="#0891B2" strokeWidth="1.6">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M7 12h3l1.5-3 1.5 6 1.5-3h3" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-            <span className="flex flex-col leading-none">
-              <span className="text-[#0A0E14] font-bold text-[15px] tracking-tight">RN Serwis Elektroniki</span>
-              <span className="font-mono-tech text-[10px] text-[#5A6770] mt-0.5">ELECTRONICS REPAIR · SOSNOWIEC</span>
-            </span>
+          <a href="/" className="flex items-center gap-2.5 group" aria-label="RN Serwis Elektroniki — strona główna">
+            <Image src={Logo} alt="Logo" className="w-30 invert-100" />
           </a>
 
           <ul className="hidden lg:flex items-center gap-1">

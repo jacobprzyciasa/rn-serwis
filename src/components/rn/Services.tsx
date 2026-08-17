@@ -2,21 +2,25 @@
 
 import { useState } from "react";
 import {
-  Speaker, Car, Cpu, Snowflake, HeartPulse, HelpCircle, ArrowRight,
+  Speaker,
+  Car,
+  Cpu,
+  Snowflake,
+  HeartPulse,
+  HelpCircle,
+  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 import Reveal from "./Reveal";
 
-const GROUPS: { icon: LucideIcon; ref: string; title: string; items: string[] }[] = [
+const GROUPS: { icon: LucideIcon; title: string; items: string[] }[] = [
   {
     icon: Speaker,
-    ref: "03.A",
     title: "Elektronika użytkowa",
     items: ["Sprzęt audio", "AGD", "Sterowniki pralek", "Sterowniki zmywarek"],
   },
   {
     icon: Car,
-    ref: "03.B",
     title: "Motoryzacja",
     items: [
       "Moduły samochodów osobowych",
@@ -26,7 +30,6 @@ const GROUPS: { icon: LucideIcon; ref: string; title: string; items: string[] }[
   },
   {
     icon: Cpu,
-    ref: "03.C",
     title: "Automatyka i przemysł",
     items: [
       "Sterowniki maszyn budowlanych i przemysłowych",
@@ -37,7 +40,6 @@ const GROUPS: { icon: LucideIcon; ref: string; title: string; items: string[] }[
   },
   {
     icon: Snowflake,
-    ref: "03.D",
     title: "HVAC i urządzenia specjalistyczne",
     items: [
       "Sterowniki klimatyzatorów",
@@ -49,16 +51,14 @@ const GROUPS: { icon: LucideIcon; ref: string; title: string; items: string[] }[
   },
   {
     icon: HeartPulse,
-    ref: "03.E",
     title: "Urządzenia medyczne i fitness",
     items: ["Sterowniki urządzeń fitness", "Sterowniki urządzeń medycznych"],
   },
   {
     icon: HelpCircle,
-    ref: "03.F",
     title: "Naprawy nietypowe",
     items: [
-      "Urządzenia nieprodukowane",
+      "Urządzenia już nieprodukowane",
       "Niestandardowa elektronika",
       "Urządzenia bez dostępnego serwisu",
     ],
@@ -73,13 +73,17 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="font-mono-tech text-[11px] text-[#0891B2] tracking-wider">[SEC: 03 · CO NAPRAWIAMY]</span>
+            <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
+              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+                CO NAPRAWIAMY
+              </span>
+            </div>
             <h2 className="mt-3 text-[#0A0E14] font-extrabold tracking-tight text-3xl lg:text-[2.6rem] leading-[1.1]">
               Szeroki zakres napraw elektroniki
             </h2>
             <p className="mt-4 text-[#5A6770] text-lg leading-relaxed">
-              Od sprzętu AGD po elektronikę przemysłową i motoryzacyjną. Poniżej
-              pogrupowaliśmy najczęściej naprawiane kategorie urządzeń.
+              Od sprzętu AGD i sprzętów audio aż po elektronikę przemysłową i
+              motoryzacyjną. Wszystko, co wymaga serwisu.
             </p>
           </div>
         </Reveal>
@@ -100,12 +104,16 @@ export default function Services() {
                   <span className="grid place-items-center w-11 h-11 rounded-lg border border-black/10 text-[#0891B2] group-hover:border-[#0891B2]/40 transition-colors">
                     <g.icon className="w-5 h-5" strokeWidth={1.6} />
                   </span>
-                  <span className="font-mono-tech text-[10px] text-[#8A95A0]">[REF: {g.ref}]</span>
                 </div>
-                <h3 className="text-[#0A0E14] font-semibold text-[17px] mb-4">{g.title}</h3>
+                <h3 className="text-[#0A0E14] font-semibold text-[17px] mb-4">
+                  {g.title}
+                </h3>
                 <ul className="space-y-2">
                   {g.items.map((it) => (
-                    <li key={it} className="flex items-center gap-2 text-[14px] text-[#5A6770]">
+                    <li
+                      key={it}
+                      className="flex items-center gap-2 text-[14px] text-[#5A6770]"
+                    >
                       <span className="w-1 h-1 rounded-full bg-[#0891B2]/60" />
                       {it}
                     </li>
@@ -121,7 +129,9 @@ export default function Services() {
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 text-center p-7 rounded-xl border border-black/8 bg-white">
             <p className="text-[#5A6770] text-lg">
               Nie widzisz swojego urządzenia?{" "}
-              <span className="text-[#0A0E14] font-medium">Zapytaj — być może możemy je naprawić.</span>
+              <span className="text-[#0A0E14] font-medium">
+                Zapytaj - być może potrafię je naprawić.
+              </span>
             </p>
             <a
               href="#kontakt"

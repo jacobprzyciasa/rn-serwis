@@ -11,12 +11,11 @@ export default function CTA() {
             <div className="absolute top-0 left-0 w-1.5 h-full bg-[#0891B2]" />
             <div className="absolute inset-0 tech-grid-bg opacity-40 pointer-events-none" />
             <div className="relative max-w-2xl">
-              <span className="font-mono-tech text-[11px] text-[#0891B2] tracking-wider">[SEC: 08 · CTA]</span>
               <h2 className="mt-4 text-[#0A0E14] font-extrabold tracking-tight text-3xl lg:text-[2.8rem] leading-[1.08]">
                 Masz urządzenie, którego nikt nie chce się podjąć?
               </h2>
               <p className="mt-5 text-[#5A6770] text-lg leading-relaxed">
-                Opisz problem — sprawdzimy, czy możemy pomóc.
+                Opisz problem, a postaram się pomóc.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
                 <a

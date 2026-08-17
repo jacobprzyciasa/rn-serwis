@@ -1,7 +1,7 @@
 import { ArrowRight, Phone } from "lucide-react";
 import { PHONE, PHONE_TEL } from "./constants";
-
-const HERO_IMG = "https://media.base44.com/images/public/6a82d6c0df5c8c71096f3b12/d0f052a36_generated_850aa8ce.png";
+import Image from "next/image";
+import HERO_IMG from "../../../public/hero.png";
 
 export default function Hero() {
   return (
@@ -9,12 +9,12 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={HERO_IMG}
           alt="Makrofotografia płytki PCB — precyzyjna naprawa elektroniki"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-[#F7F8FA] via-[#F7F8FA]/92 to-[#F7F8FA]/35" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#F7F8FA] via-[#F7F8FA]/72 to-[#F7F8FA]/15" />
         <div className="absolute inset-0 bg-linear-to-t from-[#F7F8FA] via-transparent to-[#F7F8FA]/70" />
       </div>
 
@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="max-w-3xl">
 
           <h1 className="text-[#0A0E14] font-extrabold tracking-tight leading-[1.04] text-4xl sm:text-5xl lg:text-[5.2rem]">
-            Naprawiamy elektronikę,
+            Naprawiam elektronikę,
             <br className="hidden sm:block" />{" "}
             której inni <span className="text-[#0891B2]">nie potrafią</span> naprawić.
           </h1>
@@ -47,14 +47,6 @@ export default function Hero() {
               <Phone className="w-5 h-5" strokeWidth={2.2} />
               Zadzwoń {PHONE}
             </a>
-          </div>
-
-          <div className="mt-9 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono-tech text-[12px] text-[#5A6770]">
-            <span>25 lat doświadczenia</span>
-            <span className="text-[#0891B2]">•</span>
-            <span>Naprawy wysyłkowe</span>
-            <span className="text-[#0891B2]">•</span>
-            <span>Dojazd w Sosnowcu i okolicach</span>
           </div>
         </div>
       </div>
