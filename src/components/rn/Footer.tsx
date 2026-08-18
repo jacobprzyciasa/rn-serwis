@@ -1,7 +1,8 @@
 import { MapPin, Phone, ShieldCheck } from "lucide-react";
 import { PHONE, PHONE_TEL } from "@/utils/constants";
 import Image from "next/image";
-import { LINKS } from "@/utils/nav"
+import Link from "next/link";
+import { SUBPAGES } from "@/utils/nav"
 import Logo from "../../../public/rn_final_combo_white_trans.png"
 
 
@@ -15,9 +16,9 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <a href="/" className="flex items-center gap-2.5 group" aria-label="RN Serwis Elektroniki — strona główna">
+            <Link href="/" className="flex items-center gap-2.5 group" aria-label="RN Serwis Elektroniki — strona główna">
             <Image src={Logo} alt="Logo" className="w-30 invert-100" />
-          </a>
+          </Link>
             <p className="mt-4 text-[#5A6770] text-sm leading-relaxed max-w-xs">
               Serwis i naprawa elektroniki z 25-letnim doświadczeniem. Sterowniki,
               moduły, falowniki, zasilacze i urządzenia nietypowe.
@@ -41,13 +42,13 @@ export default function Footer() {
 
           {/* Nav */}
           <div>
-            <h4 className="font-mono-tech text-[11px] text-[#0891B2] uppercase tracking-wider">Realizacje</h4>
+            <h4 className="font-mono-tech text-[11px] text-[#0891B2] uppercase tracking-wider">Nawigacja</h4>
             <ul className="mt-4 space-y-2.5">
-              {LINKS.map((l) => (
+              {SUBPAGES.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} className="text-[#5A6770] text-sm hover:text-[#0A0E14] transition-colors">
+                  <Link href={l.href} className="text-[#5A6770] text-sm hover:text-[#0A0E14] transition-colors">
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

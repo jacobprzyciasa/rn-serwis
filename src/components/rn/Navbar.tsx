@@ -5,6 +5,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { PHONE, PHONE_TEL } from "@/utils/constants";
 import { SUBPAGES } from "@/utils/nav"
 import Image from "next/image";
+import Link from "next/link";
 import Logo from "../../../public/rn_final_combo_white_trans.png";
 
 export default function Navbar() {
@@ -35,19 +36,19 @@ export default function Navbar() {
         }`}
       >
         <nav className="max-w-7xl mx-auto px-5 lg:px-8 h-16 lg:h-20 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2.5 group" aria-label="RN Serwis Elektroniki — strona główna">
+          <Link href="/" className="flex items-center gap-2.5 group" aria-label="RN Serwis Elektroniki — strona główna">
             <Image src={Logo} alt="Logo" className="w-30 invert-100" />
-          </a>
+          </Link>
 
           <ul className="hidden lg:flex items-center gap-1">
             {SUBPAGES.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
                   className="px-3.5 py-2 text-[13.5px] font-medium text-[#5A6770] hover:text-[#0A0E14] transition-colors rounded-md hover:bg-black/5"
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -95,14 +96,14 @@ export default function Navbar() {
           <ul className="flex flex-col gap-1">
             {SUBPAGES.map((l, i) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-3 py-3.5 text-lg font-semibold text-[#0A0E14] border-b border-black/5"
                 >
                   <span className="font-mono-tech text-[11px] text-[#0891B2]">0{i + 1}</span>
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

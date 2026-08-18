@@ -1,13 +1,5 @@
-export const LINKS = [
-  { label: "Start", href: "#start" },
-  { label: "O serwisie", href: "#o-serwisie" },
-  { label: "Usługi", href: "#uslugi" },
-  { label: "Realizacje", href: "#realizacje" },
-  { label: "Opinie", href: "#opinie" },
-  { label: "Kontakt", href: "#kontakt" },
-];
-
 export const SUBPAGES = [
+    { label: "Start", href: "/" },
     { label: "Straż", href: "/straz" },
     { label: "Audio", href: "/audio" },
     { label: "Motoryzacja", href: "/motoryzacja" },

@@ -29,7 +29,7 @@ const EMPTY_FORM: FormState = {
   consent: false,
 };
 
-export default function Contact() {
+export default function Contact({ compact = false }: { compact?: boolean }) {
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -80,7 +80,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="kontakt" className="relative py-20 lg:py-32 bg-white tech-grid-bg">
+    <section
+      id="kontakt"
+      className={`relative bg-white tech-grid-bg ${compact ? "pt-10 pb-20 lg:pb-32" : "py-20 lg:py-32"}`}
+    >
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <Reveal>
           <div className="max-w-2xl">
