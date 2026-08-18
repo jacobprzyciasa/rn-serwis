@@ -33,6 +33,7 @@ export default function Contact() {
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const set =
     (k: keyof FormState) =>
@@ -49,15 +50,33 @@ export default function Contact() {
   const valid =
     form.name && form.phone && form.email && form.desc && form.consent;
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
     if (!valid) return;
     setLoading(true);
-    // Wysłanie zapytania — docelowo integracja z backendem / e-mailem.
-    setTimeout(() => {
-      setLoading(false);
+    setError(null);
+
+    const body = new FormData();
+    body.set("name", form.name);
+    body.set("phone", form.phone);
+    body.set("email", form.email);
+    body.set("device", form.device);
+    body.set("desc", form.desc);
+    body.set("consent", String(form.consent));
+    if (form.file) body.set("file", form.file);
+
+    try {
+      const res = await fetch("/api/contact", { method: "POST", body });
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || "Nie udało się wysłać zapytania.");
+      }
       setSent(true);
-    }, 900);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Nie udało się wysłać zapytania.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -148,6 +167,10 @@ export default function Contact() {
                       Wyrażam zgodę na wykorzystanie danych przesłanych w formularzu w zakresie potrzebnym do realizacji usługi.{" "}
                     </span>
                   </label>
+
+                  {error && (
+                    <p className="text-[13px] text-red-600 leading-relaxed">{error}</p>
+                  )}
 
                   <button
                     type="submit"
