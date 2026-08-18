@@ -5,17 +5,21 @@ import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
 import Reveal from "@/components/rn/Reveal";
 import {
   CATEGORIES,
-  REALIZATIONS,
+  getAllRealizations,
   getRealization,
   getRelatedRealizations,
   isCategorySlug,
 } from "@/data/realizations";
 import { PHONE, PHONE_TEL, SITE_URL } from "@/utils/constants";
 
-export const dynamicParams = false;
+// Realizations are managed by the client in Contentful, so new slugs can
+// appear between deploys — allow on-demand generation for params not known
+// at build time, and refresh the cached result periodically.
+export const revalidate = 300;
 
-export function generateStaticParams() {
-  return REALIZATIONS.map((r) => ({ category: r.category, slug: r.slug }));
+export async function generateStaticParams() {
+  const realizations = await getAllRealizations();
+  return realizations.map((r) => ({ category: r.category, slug: r.slug }));
 }
 
 export async function generateMetadata({
@@ -23,7 +27,7 @@ export async function generateMetadata({
 }: PageProps<"/[category]/[slug]">): Promise<Metadata> {
   const { category, slug } = await params;
   if (!isCategorySlug(category)) return {};
-  const realization = getRealization(category, slug);
+  const realization = await getRealization(category, slug);
   if (!realization) return {};
 
   const url = `${SITE_URL}/${category}/${slug}`;
@@ -50,11 +54,11 @@ export default async function RealizationPage({
   const { category, slug } = await params;
   if (!isCategorySlug(category)) notFound();
 
-  const realization = getRealization(category, slug);
+  const realization = await getRealization(category, slug);
   if (!realization) notFound();
 
   const info = CATEGORIES[category];
-  const related = getRelatedRealizations(realization);
+  const related = await getRelatedRealizations(realization);
   const url = `${SITE_URL}/${category}/${slug}`;
 
   const articleJsonLd = {

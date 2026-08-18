@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/rn/Reveal";
 import CTA from "@/components/rn/CTA";
 import {
@@ -12,7 +12,11 @@ import {
 } from "@/data/realizations";
 import { SITE_URL } from "@/utils/constants";
 
+// Categories are a fixed set of 4 — unknown ones should 404, not render
+// on-demand. Realization *lists* within a category still come from
+// Contentful, so refresh the cached page periodically.
 export const dynamicParams = false;
+export const revalidate = 300;
 
 export function generateStaticParams() {
   return getCategorySlugs().map((category) => ({ category }));
@@ -43,7 +47,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
   if (!isCategorySlug(category)) notFound();
 
   const info = CATEGORIES[category];
-  const realizations = getRealizationsByCategory(category);
+  const realizations = await getRealizationsByCategory(category);
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -102,7 +106,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                     <div className="absolute inset-0 bg-linear-to-t from-white via-transparent to-transparent" />
                     <ArrowUpRight className="absolute top-2.5 right-2.5 w-5 h-5 text-[#0891B2]/0 group-hover:text-[#0891B2] transition-colors" />
                   </div>
-                  <div className="p-5">
+                  <div className="p-5 h-52 overflow-hidden">
                     <time
                       dateTime={it.date}
                       className="font-mono-tech text-[10px] text-[#8A95A0] uppercase tracking-wider"
@@ -112,11 +116,11 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                         month: "long",
                       })}
                     </time>
-                    <h2 className="mt-1 text-[#0A0E14] font-semibold text-[16px]">{it.title}</h2>
-                    <p className="mt-3 text-[13px] text-[#5A6770] leading-relaxed">
+                    <h2 className="mt-1 text-[#0A0E14] font-semibold text-[16px] line-clamp-2">{it.title}</h2>
+                    <p className="mt-3 text-[13px] text-[#5A6770] leading-relaxed line-clamp-2">
                       <span className="text-[#7A8590]">Problem:</span> {it.problem}
                     </p>
-                    <p className="mt-1.5 text-[13px] text-[#5A6770] leading-relaxed">
+                    <p className="mt-1.5 text-[13px] text-[#5A6770] leading-relaxed line-clamp-2">
                       <span className="text-[#0891B2]">Naprawa:</span> {it.fix}
                     </p>
                   </div>

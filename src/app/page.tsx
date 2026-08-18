@@ -10,6 +10,9 @@ import CTA from "@/components/rn/CTA";
 import Contact from "@/components/rn/Contact";
 import MapSection from "@/components/rn/MapSection";
 
+// The Realizations section is Contentful-backed — keep it reasonably fresh.
+export const revalidate = 300;
+
 export default function Home() {
   return (
     <main>

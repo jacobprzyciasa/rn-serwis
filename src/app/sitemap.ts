@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
-import { REALIZATIONS, getCategorySlugs } from "@/data/realizations";
+import { getAllRealizations, getCategorySlugs } from "@/data/realizations";
 import { SITE_URL } from "@/utils/constants";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 300;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: "monthly", priority: 1 },
     { url: `${SITE_URL}/o-mnie`, changeFrequency: "yearly", priority: 0.6 },
@@ -15,7 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const realizationRoutes: MetadataRoute.Sitemap = REALIZATIONS.map((r) => ({
+  const realizations = await getAllRealizations();
+  const realizationRoutes: MetadataRoute.Sitemap = realizations.map((r) => ({
     url: `${SITE_URL}/${r.category}/${r.slug}`,
     lastModified: r.date,
     changeFrequency: "monthly",

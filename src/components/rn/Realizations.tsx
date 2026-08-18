@@ -3,8 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { CATEGORIES, getLatestRealizations } from "@/data/realizations";
 
-export default function Realizations() {
-  const items = getLatestRealizations(4);
+export default async function Realizations() {
+  const items = await getLatestRealizations(4);
 
   return (
     <section id="realizacje" className="relative py-20 lg:py-32 bg-[#F7F8FA]">
@@ -47,13 +47,13 @@ export default function Realizations() {
                   </div>
                   <ArrowUpRight className="absolute top-2.5 right-2.5 w-5 h-5 text-[#0891B2]/0 group-hover:text-[#0891B2] transition-colors" />
                 </div>
-                <div className="p-5">
+                <div className="p-5 h-47.5 overflow-hidden">
                   <span className="font-mono-tech text-[10px] text-[#8A95A0] uppercase tracking-wider">REALIZACJA</span>
-                  <h3 className="mt-1 text-[#0A0E14] font-semibold text-[16px]">{it.device}</h3>
-                  <p className="mt-3 text-[13px] text-[#5A6770] leading-relaxed">
+                  <h3 className="mt-1 text-[#0A0E14] font-semibold text-[16px] line-clamp-1">{it.device}</h3>
+                  <p className="mt-3 text-[13px] text-[#5A6770] leading-relaxed line-clamp-2">
                     <span className="text-[#7A8590]">Problem:</span> {it.problem}
                   </p>
-                  <p className="mt-1.5 text-[13px] text-[#5A6770] leading-relaxed">
+                  <p className="mt-1.5 text-[13px] text-[#5A6770] leading-relaxed line-clamp-2">
                     <span className="text-[#0891B2]">Naprawa:</span> {it.fix}
                   </p>
                 </div>

@@ -1,3 +1,5 @@
+import { fetchRealizationEntries, type RealizationEntry } from "@/lib/contentful";
+
 export type CategorySlug = "straz" | "audio" | "motoryzacja" | "sterowniki";
 
 export interface CategoryInfo {
@@ -32,7 +34,7 @@ export const CATEGORIES: Record<CategorySlug, CategoryInfo> = {
     label: "Audio",
     title: "Naprawa sprzętu audio",
     description:
-      "Naprawa wzmacniaczy, zasilaczy i modułów sterujących sprzętu audio - od domowego po estradowy.",
+      "Naprawa wzmacniaczy, zasilaczy i modułów sterujących sprzętu audio — od domowego po estradowy.",
   },
   motoryzacja: {
     slug: "motoryzacja",
@@ -50,85 +52,6 @@ export const CATEGORIES: Record<CategorySlug, CategoryInfo> = {
   },
 };
 
-export const REALIZATIONS: Realization[] = [
-  {
-    slug: "falownik-regeneracja-modulu-mocy",
-    category: "sterowniki",
-    device: "Falownik",
-    title: "Falownik — regeneracja modułu mocy",
-    problem: "Brak napięcia wyjściowego, błąd overcurrent.",
-    fix: "Regeneracja modułu mocy i sekcji sterującej.",
-    excerpt:
-      "Naprawa falownika zgłaszającego błąd overcurrent - regeneracja modułu mocy i sekcji sterującej.",
-    image:
-      "https://media.base44.com/images/public/6a82d6c0df5c8c71096f3b12/eacf23f7d_generated_93f965aa.png",
-    date: "2026-06-01",
-  },
-  {
-    slug: "sterownik-pralki-naprawa-po-zalaniu",
-    category: "sterowniki",
-    device: "Sterownik pralki",
-    title: "Sterownik pralki — naprawa po zalaniu",
-    problem: "Nie uruchamia się, ślady zalania.",
-    fix: "Czyszczenie, naprawa ścieżek i wymiana uszkodzonych elementów.",
-    excerpt:
-      "Naprawa sterownika pralki po zalaniu - czyszczenie, regeneracja ścieżek i wymiana elementów.",
-    image:
-      "https://media.base44.com/images/public/6a82d6c0df5c8c71096f3b12/d33bb51cd_generated_c1f98b77.png",
-    date: "2026-05-20",
-  },
-  {
-    slug: "zasilacz-przemyslowy-niestabilne-napiecie",
-    category: "sterowniki",
-    device: "Zasilacz przemysłowy",
-    title: "Zasilacz przemysłowy - niestabilne napięcie",
-    problem: "Niestabilne napięcie, wyłącza się pod obciążeniem.",
-    fix: "Wymiana kondensatorów i przebudowa sekcji zasilania.",
-    excerpt:
-      "Naprawa zasilacza przemysłowego wyłączającego się pod obciążeniem - wymiana kondensatorów.",
-    image:
-      "https://media.base44.com/images/public/6a82d6c0df5c8c71096f3b12/d8d340ed4_generated_556358f9.png",
-    date: "2026-05-05",
-  },
-  {
-    slug: "modul-ecu-blad-komunikacji",
-    category: "motoryzacja",
-    device: "Moduł samochodowy (ECU)",
-    title: "Moduł ECU - błąd komunikacji, brak startu silnika",
-    problem: "Błąd komunikacji, brak startu silnika.",
-    fix: "Diagnostyka i ponowne wlutowanie układów sterujących.",
-    excerpt:
-      "Naprawa modułu ECU z błędem komunikacji uniemożliwiającym uruchomienie silnika.",
-    image:
-      "https://media.base44.com/images/public/6a82d6c0df5c8c71096f3b12/3b1ffa09d_generated_74a47bc5.png",
-    date: "2026-04-18",
-  },
-  {
-    slug: "powairbox-brak-lacznosci-z-centrala",
-    category: "straz",
-    device: "PowAirBox",
-    title: "PowAirBox — brak łączności z centralą",
-    problem: "Brak łączności z centralą, błąd czujnika ciśnienia.",
-    fix: "Diagnostyka modułu sterującego i wymiana uszkodzonego czujnika.",
-    excerpt:
-      "Naprawa systemu PowAirBox wykorzystywanego przez jednostki Straży Pożarnej.",
-    image: "/fire.jpg",
-    date: "2026-03-10",
-  },
-  {
-    slug: "wzmacniacz-audio-brak-sygnalu-na-kanale",
-    category: "audio",
-    device: "Wzmacniacz audio",
-    title: "Wzmacniacz audio — brak sygnału na jednym kanale",
-    problem: "Brak sygnału na jednym z kanałów, przydźwięk sieciowy.",
-    fix: "Wymiana uszkodzonych tranzystorów mocy i kondensatorów filtrujących.",
-    excerpt:
-      "Naprawa wzmacniacza audio z brakiem sygnału na jednym kanale i przydźwiękiem sieciowym.",
-    image: "/expertise.jpg",
-    date: "2026-02-22",
-  },
-];
-
 export function getCategorySlugs(): CategorySlug[] {
   return Object.keys(CATEGORIES) as CategorySlug[];
 }
@@ -137,22 +60,67 @@ export function isCategorySlug(value: string): value is CategorySlug {
   return Object.prototype.hasOwnProperty.call(CATEGORIES, value);
 }
 
-export function getRealizationsByCategory(category: CategorySlug): Realization[] {
-  return REALIZATIONS.filter((r) => r.category === category).sort((a, b) =>
-    b.date.localeCompare(a.date),
-  );
+function mapEntry(entry: RealizationEntry): Realization | null {
+  const f = entry.fields;
+
+  if (!f.category || !isCategorySlug(f.category)) {
+    console.warn(
+      `[contentful] Realizacja "${f.title ?? entry.sys.id}" ma nieprawidłową kategorię ("${f.category}") — pomijam. Dozwolone: ${getCategorySlugs().join(", ")}.`,
+    );
+    return null;
+  }
+
+  const photo = f.photo && "fields" in f.photo ? f.photo : undefined;
+  const fileUrl = photo?.fields?.file?.url;
+  if (!fileUrl) {
+    console.warn(
+      `[contentful] Realizacja "${f.title ?? entry.sys.id}" nie ma zdjęcia (pole "photo") — pomijam.`,
+    );
+    return null;
+  }
+
+  return {
+    slug: f.slug,
+    category: f.category,
+    device: f.device,
+    title: f.title,
+    problem: f.problem,
+    fix: f.fix,
+    excerpt: f.excerpt,
+    image: fileUrl.startsWith("//") ? `https:${fileUrl}` : fileUrl,
+    date: f.realizationDate.slice(0, 10),
+  };
 }
 
-export function getRealization(category: CategorySlug, slug: string): Realization | undefined {
-  return REALIZATIONS.find((r) => r.category === category && r.slug === slug);
+// Contentful query already orders by -fields.realizationDate, so results
+// arrive newest-first — no need to re-sort here.
+export async function getAllRealizations(): Promise<Realization[]> {
+  const entries = await fetchRealizationEntries();
+  return entries.map(mapEntry).filter((r): r is Realization => r !== null);
 }
 
-export function getLatestRealizations(limit: number): Realization[] {
-  return [...REALIZATIONS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, limit);
+export async function getRealizationsByCategory(category: CategorySlug): Promise<Realization[]> {
+  const all = await getAllRealizations();
+  return all.filter((r) => r.category === category);
 }
 
-export function getRelatedRealizations(realization: Realization, limit = 3): Realization[] {
-  return getRealizationsByCategory(realization.category)
-    .filter((r) => r.slug !== realization.slug)
-    .slice(0, limit);
+export async function getRealization(
+  category: CategorySlug,
+  slug: string,
+): Promise<Realization | undefined> {
+  const all = await getAllRealizations();
+  return all.find((r) => r.category === category && r.slug === slug);
+}
+
+export async function getLatestRealizations(limit: number): Promise<Realization[]> {
+  const all = await getAllRealizations();
+  return all.slice(0, limit);
+}
+
+export async function getRelatedRealizations(
+  realization: Realization,
+  limit = 3,
+): Promise<Realization[]> {
+  const categoryItems = await getRealizationsByCategory(realization.category);
+  return categoryItems.filter((r) => r.slug !== realization.slug).slice(0, limit);
 }
