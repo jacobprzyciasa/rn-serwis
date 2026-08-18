@@ -2,18 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import { PHONE, PHONE_TEL } from "./constants";
+import { PHONE, PHONE_TEL } from "@/utils/constants";
+import { SUBPAGES } from "@/utils/nav"
 import Image from "next/image";
 import Logo from "../../../public/rn_final_combo_white_trans.png";
-
-const LINKS = [
-  { label: "Start", href: "#start" },
-  { label: "O serwisie", href: "#o-serwisie" },
-  { label: "Usługi", href: "#uslugi" },
-  { label: "Realizacje", href: "#realizacje" },
-  { label: "Opinie", href: "#opinie" },
-  { label: "Kontakt", href: "#kontakt" },
-];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -48,7 +40,7 @@ export default function Navbar() {
           </a>
 
           <ul className="hidden lg:flex items-center gap-1">
-            {LINKS.map((l) => (
+            {SUBPAGES.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
@@ -81,7 +73,7 @@ export default function Navbar() {
 
       {/* Mobile overlay */}
       <div
-        className={`fixed inset-0 z-[60] lg:hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-[60] overflow-hidden lg:hidden transition-all duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -91,8 +83,7 @@ export default function Navbar() {
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex items-center justify-between mb-10">
-            <span className="font-mono-tech text-[10px] text-[#5A6770]">[ NAV MENU ]</span>
+          <div className="flex items-center justify-end mb-10">
             <button
               onClick={() => setOpen(false)}
               className="grid place-items-center w-10 h-10 rounded-md border border-black/10 text-[#0A0E14]"
@@ -102,7 +93,7 @@ export default function Navbar() {
             </button>
           </div>
           <ul className="flex flex-col gap-1">
-            {LINKS.map((l, i) => (
+            {SUBPAGES.map((l, i) => (
               <li key={l.href}>
                 <a
                   href={l.href}

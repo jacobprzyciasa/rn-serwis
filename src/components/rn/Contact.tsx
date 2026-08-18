@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import { MapPin, Phone, Truck, Upload, Send, Check } from "lucide-react";
-import { PHONE, PHONE_TEL } from "./constants";
+import { PHONE, PHONE_TEL } from "@/utils/constants";
 import Reveal from "./Reveal";
 
 const INPUT_CLS =
@@ -98,7 +98,7 @@ export default function Contact() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-16 items-start">
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-16 items-start">
           {/* Form */}
           <Reveal>
             <div className="rounded-2xl border border-black/8 bg-[#F7F8FA] p-6 lg:p-9">
@@ -148,7 +148,7 @@ export default function Contact() {
                     <span className="font-mono-tech text-[10px] text-[#5A6770] uppercase tracking-wider">Zdjęcie / plik (opcjonalnie)</span>
                     <label className="mt-2 flex items-center gap-3 px-4 py-3.5 rounded-lg border border-dashed border-black/15 hover:border-[#0891B2]/50 transition-colors cursor-pointer">
                       <Upload className="w-5 h-5 text-[#0891B2]" strokeWidth={1.8} />
-                      <span className="text-[14px] text-[#5A6770] truncate">
+                      <span className="min-w-0 flex-1 text-[14px] text-[#5A6770] truncate">
                         {form.file ? form.file.name : "Kliknij, aby dodać zdjęcie uszkodzonego modułu"}
                       </span>
                       <input type="file" accept="image/*,.pdf" onChange={set("file")} className="hidden" />

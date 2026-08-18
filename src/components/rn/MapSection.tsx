@@ -1,5 +1,5 @@
 import { MapPin, Phone, Navigation } from "lucide-react";
-import { PHONE, PHONE_TEL } from "./constants";
+import { PHONE, PHONE_TEL } from "@/utils/constants";
 import Reveal from "./Reveal";
 
 const MAPS_QUERY = encodeURIComponent("RN Serwis Elektroniki, Dworska 12, 41-219 Sosnowiec");

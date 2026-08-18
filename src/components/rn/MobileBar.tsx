@@ -1,5 +1,5 @@
 import { Phone, MessageCircle } from "lucide-react";
-import { PHONE_TEL } from "./constants";
+import { PHONE_TEL } from "@/utils/constants";
 
 export default function MobileBar() {
   return (

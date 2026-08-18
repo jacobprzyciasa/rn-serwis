@@ -1,5 +1,5 @@
 import { ArrowRight, Phone } from "lucide-react";
-import { PHONE, PHONE_TEL } from "./constants";
+import { PHONE, PHONE_TEL } from "@/utils/constants";
 import Image from "next/image";
 import HERO_IMG from "../../../public/hero.png";
 

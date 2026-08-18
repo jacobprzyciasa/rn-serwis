@@ -112,9 +112,9 @@ export default function Services() {
                   {g.items.map((it) => (
                     <li
                       key={it}
-                      className="flex items-center gap-2 text-[14px] text-[#5A6770]"
+                      className="flex items-start gap-2 text-[14px] text-[#5A6770]"
                     >
-                      <span className="w-1 h-1 rounded-full bg-[#0891B2]/60" />
+                      <span className="mt-2 w-1 h-1 rounded-full bg-[#0891B2]/60 shrink-0" />
                       {it}
                     </li>
                   ))}

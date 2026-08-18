@@ -1,16 +1,9 @@
 import { MapPin, Phone, ShieldCheck } from "lucide-react";
-import { PHONE, PHONE_TEL } from "./constants";
+import { PHONE, PHONE_TEL } from "@/utils/constants";
 import Image from "next/image";
+import { LINKS } from "@/utils/nav"
 import Logo from "../../../public/rn_final_combo_white_trans.png"
 
-const LINKS = [
-  { label: "Start", href: "#start" },
-  { label: "O serwisie", href: "#o-serwisie" },
-  { label: "Usługi", href: "#uslugi" },
-  { label: "Realizacje", href: "#realizacje" },
-  { label: "Opinie", href: "#opinie" },
-  { label: "Kontakt", href: "#kontakt" },
-];
 
 const REVIEWS_URL = "https://www.google.com/search?q=RN+Serwis+Elektroniki+Sosnowiec";
 const MAPS_URL = "https://www.google.com/maps?q=" + encodeURIComponent("RN Serwis Elektroniki, Dworska 12, 41-219 Sosnowiec");

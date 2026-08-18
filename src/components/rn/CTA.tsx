@@ -1,5 +1,5 @@
 import { Phone, ArrowRight } from "lucide-react";
-import { PHONE, PHONE_TEL } from "./constants";
+import { PHONE, PHONE_TEL } from "@/utils/constants";
 import Reveal from "./Reveal";
 
 export default function CTA() {

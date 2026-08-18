@@ -55,7 +55,7 @@ export default function Realizations() {
         </Reveal>
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {ITEMS.map((it, i) => (
+          {ITEMS.slice(0, 4).map((it, i) => (
             <Reveal key={it.cat} delay={(i % 4) * 0.07}>
               <div className="group h-full rounded-xl overflow-hidden border border-black/8 bg-white hover:border-[#0891B2]/40 transition-colors">
                 <div className="relative aspect-[4/3] overflow-hidden">
