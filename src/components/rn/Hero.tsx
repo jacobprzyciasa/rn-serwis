@@ -8,11 +8,13 @@ export default function Hero() {
     <section id="start" className="relative min-h-[100svh] flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <Image
           src={HERO_IMG}
           alt="Makrofotografia płytki PCB — precyzyjna naprawa elektroniki"
           className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-linear-to-r from-[#F7F8FA] via-[#F7F8FA]/72 to-[#F7F8FA]/15" />
         <div className="absolute inset-0 bg-linear-to-t from-[#F7F8FA] via-transparent to-[#F7F8FA]/70" />
@@ -35,7 +37,7 @@ export default function Hero() {
           <div className="mt-9 flex flex-col sm:flex-row gap-3.5">
             <a
               href="#kontakt"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-md bg-[#0891B2] text-white font-bold text-[15px] hover:bg-[#0E7A95] active:scale-[0.98] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.28)]"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-md bg-[#0E7A95] text-white font-bold text-[15px] hover:bg-[#0A6880] active:scale-[0.98] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.28)]"
             >
               Zleć naprawę
               <ArrowRight className="w-5 h-5" strokeWidth={2.4} />

@@ -4,8 +4,6 @@ import Reveal from "./Reveal";
 import Image from "next/image";
 import fire from "../../../public/fire.jpg";
 
-const POWAIR = "https://media.base44.com/images/public/6a82d6c0df5c8c71096f3b12/8459163b2_generated_b6632444.png";
-
 export default function PowAirBox() {
   return (
     <section className="relative py-20 lg:py-32 bg-[#F1F4F6] overflow-hidden">
@@ -16,11 +14,12 @@ export default function PowAirBox() {
       <div className="relative max-w-7xl mx-auto px-5 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <Reveal>
-            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden border border-black/10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+            <div className="relative aspect-3/2 rounded-2xl overflow-hidden border border-black/10">
               <Image
                 src={fire}
                 alt="Urządzenie PowAirBox — specjalistyczna naprawa dla straży pożarnej"
+                loading="lazy"
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -29,7 +28,7 @@ export default function PowAirBox() {
           <Reveal delay={0.15}>
             <div>
               <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
-              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+              <span className="font-mono-tech text-[12px] text-[#0C6E86] font-semibold">
                 PAŃSTWOWA STRAŻ POŻARNA
               </span>
             </div>
@@ -54,7 +53,7 @@ export default function PowAirBox() {
               <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
                 <a
                   href="#kontakt"
-                  className="inline-flex items-center gap-2 px-6 py-4 rounded-md bg-[#0891B2] text-white font-bold text-[15px] hover:bg-[#0E7A95] active:scale-[0.98] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.22)]"
+                  className="inline-flex items-center gap-2 px-6 py-4 rounded-md bg-[#0E7A95] text-white font-bold text-[15px] hover:bg-[#0A6880] active:scale-[0.98] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.22)]"
                 >
                   Zapytaj o naprawę PowAirBox
                   <ArrowRight className="w-5 h-5" strokeWidth={2.4} />

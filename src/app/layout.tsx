@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/rn/Navbar";
 import Footer from "@/components/rn/Footer";
 import MobileBar from "@/components/rn/MobileBar";
-import { BUSINESS_ADDRESS, PHONE_TEL, SITE_NAME, SITE_URL } from "@/utils/constants";
+import { BUSINESS_ADDRESS, INSTAGRAM_URL, PHONE_TEL, SITE_NAME, SITE_URL } from "@/utils/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -37,6 +37,15 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: "/",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} - naprawa elektroniki Sosnowiec`,
+    description: DESCRIPTION,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#F7F8FA",
 };
 
 const localBusinessJsonLd = {
@@ -50,6 +59,7 @@ const localBusinessJsonLd = {
     ...BUSINESS_ADDRESS,
   },
   areaServed: "Sosnowiec i okolice",
+  sameAs: [INSTAGRAM_URL],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

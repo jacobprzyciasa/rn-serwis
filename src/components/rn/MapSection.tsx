@@ -12,7 +12,7 @@ export default function MapSection() {
         <Reveal>
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
-              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+              <span className="font-mono-tech text-[12px] text-[#0C6E86] font-semibold">
                 LOKALIZACJA
               </span>
             </div>
@@ -67,7 +67,7 @@ export default function MapSection() {
                 href={MAPS_DIR}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-7 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-md border border-[#0891B2]/40 text-[#0891B2] font-semibold text-sm hover:bg-[#0891B2] hover:text-white transition-colors"
+                className="mt-7 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-md border border-[#0891B2]/40 text-[#0C6E86] font-semibold text-sm hover:bg-[#0891B2] hover:text-white transition-colors"
               >
                 <Navigation className="w-4 h-4" strokeWidth={2.2} />
                 Wyznacz trasę

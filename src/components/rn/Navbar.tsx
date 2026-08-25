@@ -37,7 +37,7 @@ export default function Navbar() {
       >
         <nav className="max-w-7xl mx-auto px-5 lg:px-8 h-16 lg:h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5 group" aria-label="RN Serwis Elektroniki — strona główna">
-            <Image src={Logo} alt="Logo" className="w-30 invert-100" />
+            <Image src={Logo} alt="RN Serwis Elektroniki" sizes="120px" className="w-30 invert-100" />
           </Link>
 
           <ul className="hidden lg:flex items-center gap-1">
@@ -81,7 +81,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <a
               href={`tel:${PHONE_TEL}`}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#0891B2] text-white font-semibold text-[13px] hover:bg-[#0E7A95] active:scale-[0.98] transition-all shadow-[0_8px_24px_rgba(8,145,178,0.25)]"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#0E7A95] text-white font-semibold text-[13px] hover:bg-[#0A6880] active:scale-[0.98] transition-all shadow-[0_8px_24px_rgba(8,145,178,0.25)]"
             >
               <Phone className="w-4 h-4" strokeWidth={2.4} />
               {PHONE}
@@ -126,7 +126,7 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-3 py-3.5 text-lg font-semibold text-[#0A0E14] border-b border-black/5"
                 >
-                  <span className="font-mono-tech text-[11px] text-[#0891B2]">0{i + 1}</span>
+                  <span className="font-mono-tech text-[11px] text-[#0C6E86]">0{i + 1}</span>
                   {l.label}
                 </Link>
               </li>
@@ -135,7 +135,7 @@ export default function Navbar() {
           <a
             href={`tel:${PHONE_TEL}`}
             onClick={() => setOpen(false)}
-            className="mt-auto inline-flex items-center justify-center gap-2 px-5 py-4 rounded-md bg-[#0891B2] text-white font-bold"
+            className="mt-auto inline-flex items-center justify-center gap-2 px-5 py-4 rounded-md bg-[#0E7A95] text-white font-bold"
           >
             <Phone className="w-5 h-5" strokeWidth={2.4} />
             Zadzwoń: {PHONE}

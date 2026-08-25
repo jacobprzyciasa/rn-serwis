@@ -28,6 +28,7 @@ export default function USP() {
   return (
     <section className="relative py-16 lg:py-20 border-y border-black/5 bg-white">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
+        <h2 className="sr-only">Dlaczego warto mi zaufać</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-black/5 rounded-xl overflow-hidden border border-black/5">
           {ITEMS.map((it, i) => (
             <Reveal key={it.title} delay={i * 0.08}>

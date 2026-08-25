@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Reveal from "./Reveal";
 import type { GalleryPhoto } from "@/data/gallery";
+import { ctfImg } from "@/utils/image";
 
 const ALT = "Zdjęcie z serwisu RN Serwis Elektroniki";
 
@@ -46,7 +47,7 @@ export default function GalleryGrid({ photos }: { photos: GalleryPhoto[] }) {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={photo.image}
+                src={ctfImg(photo.image, 500)}
                 alt={ALT}
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
@@ -99,7 +100,7 @@ export default function GalleryGrid({ photos }: { photos: GalleryPhoto[] }) {
         {activeIndex !== null && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={photos[activeIndex].image}
+            src={ctfImg(photos[activeIndex].image, 1600)}
             alt={ALT}
             className="relative max-w-full max-h-full object-contain rounded-lg select-none"
           />

@@ -27,7 +27,7 @@ export default function KontaktPage() {
       <div className="pt-28 lg:pt-36 bg-white tech-grid-bg">
         <div className="max-w-7xl mx-auto px-5 lg:px-8">
           <Reveal>
-            <nav aria-label="Breadcrumb" className="font-mono-tech text-[11px] text-[#8A95A0]">
+            <nav aria-label="Breadcrumb" className="font-mono-tech text-[11px] text-[#616B75]">
               <Link href="/" className="hover:text-[#0891B2] transition-colors">Start</Link>
               <span className="mx-2">/</span>
               <span className="text-[#5A6770]">Kontakt</span>

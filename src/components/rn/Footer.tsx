@@ -17,7 +17,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2.5 group" aria-label="RN Serwis Elektroniki — strona główna">
-            <Image src={Logo} alt="Logo" className="w-30 invert-100" />
+            <Image src={Logo} alt="RN Serwis Elektroniki" sizes="120px" className="w-30 invert-100" />
           </Link>
             <p className="mt-4 text-[#5A6770] text-sm leading-relaxed max-w-xs">
               Serwis i naprawa elektroniki z 25-letnim doświadczeniem. Sterowniki,
@@ -27,7 +27,7 @@ export default function Footer() {
 
           {/* Address */}
           <div>
-            <h4 className="font-mono-tech text-[11px] text-[#0891B2] uppercase tracking-wider">Adres</h4>
+            <h3 className="font-mono-tech text-[11px] text-[#0C6E86] uppercase tracking-wider">Adres</h3>
             <div className="mt-4 space-y-2.5">
               <p className="flex items-start gap-2.5 text-[#5A6770] text-sm">
                 <MapPin className="w-4 h-4 text-[#0891B2] shrink-0 mt-0.5" strokeWidth={1.8} />
@@ -42,7 +42,7 @@ export default function Footer() {
 
           {/* Nav */}
           <div>
-            <h4 className="font-mono-tech text-[11px] text-[#0891B2] uppercase tracking-wider">Nawigacja</h4>
+            <h3 className="font-mono-tech text-[11px] text-[#0C6E86] uppercase tracking-wider">Nawigacja</h3>
             <ul className="mt-4 space-y-2.5">
               {SUBPAGES.map((l) => (
                 <li key={l.href}>
@@ -56,7 +56,7 @@ export default function Footer() {
 
           {/* Mapy / opinie / RODO */}
           <div>
-            <h4 className="font-mono-tech text-[11px] text-[#0891B2] uppercase tracking-wider">Sprawdź mnie</h4>
+            <h3 className="font-mono-tech text-[11px] text-[#0C6E86] uppercase tracking-wider">Sprawdź mnie</h3>
             <ul className="mt-4 space-y-2.5">
               <li>
                 <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-[#5A6770] text-sm hover:text-[#0A0E14] transition-colors">
@@ -78,10 +78,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-7 border-t border-black/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#7A8590] text-[12.5px] font-mono-tech">
+          <p className="text-[#616B75] text-[12.5px] font-mono-tech">
             © RN Serwis Elektroniki - wszelkie prawa zastrzeżone
           </p>
-          <p className="flex items-center gap-2 text-[#7A8590] text-[12px]">
+          <p className="flex items-center gap-2 text-[#616B75] text-[12px]">
             <ShieldCheck className="w-3.5 h-3.5 text-[#0891B2]/70" strokeWidth={1.8} />
             Podanie danych w formularzu jest dobrowolne
           </p>

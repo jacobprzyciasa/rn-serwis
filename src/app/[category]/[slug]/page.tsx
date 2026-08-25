@@ -11,6 +11,7 @@ import {
   isCategorySlug,
 } from "@/data/realizations";
 import { PHONE, PHONE_TEL, SITE_URL } from "@/utils/constants";
+import { ctfImg } from "@/utils/image";
 import { truncate } from "@/utils/text";
 
 // Realizations are managed by the client in Contentful, so new slugs can
@@ -43,7 +44,7 @@ export async function generateMetadata({
       title: realization.title,
       description,
       url,
-      images: [{ url: realization.image }],
+      images: [{ url: ctfImg(realization.image, 1200), width: 1200 }],
       publishedTime: realization.date,
       section: CATEGORIES[category].label,
     },
@@ -68,7 +69,7 @@ export default async function RealizationPage({
     "@type": "Article",
     headline: realization.title,
     description: truncate(realization.fix, 155),
-    image: [realization.image],
+    image: [ctfImg(realization.image, 1200)],
     datePublished: realization.date,
     dateModified: realization.date,
     articleSection: info.label,
@@ -104,7 +105,7 @@ export default async function RealizationPage({
 
       <article className="max-w-3xl mx-auto px-5 lg:px-8">
         <Reveal>
-          <nav aria-label="Breadcrumb" className="font-mono-tech text-[11px] text-[#8A95A0]">
+          <nav aria-label="Breadcrumb" className="font-mono-tech text-[11px] text-[#616B75]">
             <Link href="/" className="hover:text-[#0891B2] transition-colors">Start</Link>
             <span className="mx-2">/</span>
             <Link href={`/${info.slug}`} className="hover:text-[#0891B2] transition-colors">
@@ -115,7 +116,7 @@ export default async function RealizationPage({
           </nav>
 
           <div className="mt-5 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
-            <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+            <span className="font-mono-tech text-[12px] text-[#0C6E86] font-semibold">
               {info.label.toUpperCase()}
             </span>
           </div>
@@ -124,7 +125,7 @@ export default async function RealizationPage({
           </h1>
           <time
             dateTime={realization.date}
-            className="mt-3 block font-mono-tech text-[12px] text-[#8A95A0]"
+            className="mt-3 block font-mono-tech text-[12px] text-[#616B75]"
           >
             {new Date(realization.date).toLocaleDateString("pl-PL", {
               year: "numeric",
@@ -135,11 +136,12 @@ export default async function RealizationPage({
         </Reveal>
 
         <Reveal delay={0.08}>
-          <div className="mt-8 relative aspect-[16/9] rounded-2xl overflow-hidden border border-black/10">
+          <div className="mt-8 relative aspect-video rounded-2xl overflow-hidden border border-black/10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={realization.image}
+              src={ctfImg(realization.image, 1200)}
               alt={realization.title}
+              loading="eager"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
@@ -156,7 +158,7 @@ export default async function RealizationPage({
           <div className="mt-10 flex flex-col sm:flex-row gap-3.5">
             <a
               href={`tel:${PHONE_TEL}`}
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-md bg-[#0891B2] text-white font-bold text-[15px] hover:bg-[#0E7A95] active:scale-[0.98] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.22)]"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-md bg-[#0E7A95] text-white font-bold text-[15px] hover:bg-[#0A6880] active:scale-[0.98] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.22)]"
             >
               <Phone className="w-5 h-5" strokeWidth={2.4} />
               Zadzwoń {PHONE}
@@ -174,7 +176,7 @@ export default async function RealizationPage({
         <Reveal delay={0.2}>
           <Link
             href={`/${info.slug}`}
-            className="mt-12 inline-flex items-center gap-2 text-[#0891B2] font-semibold text-sm hover:underline"
+            className="mt-12 inline-flex items-center gap-2 text-[#0C6E86] font-semibold text-sm hover:underline"
           >
             <ArrowLeft className="w-4 h-4" strokeWidth={2.2} />
             Zobacz wszystkie realizacje: {info.label}
@@ -192,11 +194,12 @@ export default async function RealizationPage({
                     href={`/${r.category}/${r.slug}`}
                     className="group rounded-xl overflow-hidden border border-black/8 bg-white hover:border-[#0891B2]/40 transition-colors"
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden">
+                    <div className="relative aspect-4/3 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={r.image}
+                        src={ctfImg(r.image, 500)}
                         alt={r.title}
+                        loading="lazy"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                       />
                     </div>

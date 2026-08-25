@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { CATEGORIES, getLatestRealizations } from "@/data/realizations";
+import { ctfImg } from "@/utils/image";
 
 export default async function Realizations() {
   const items = await getLatestRealizations(4);
@@ -13,7 +14,7 @@ export default async function Realizations() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
-                <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+                <span className="font-mono-tech text-[12px] text-[#0C6E86] font-semibold">
                   REALIZACJE
                 </span>
               </div>
@@ -37,21 +38,22 @@ export default async function Realizations() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={it.image}
+                    src={ctfImg(it.image, 500)}
                     alt={it.title}
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-white via-transparent to-transparent" />
-                  <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-white/85 backdrop-blur border border-black/10 font-mono-tech text-[9px] text-[#0891B2]">
+                  <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-white/85 backdrop-blur border border-black/10 font-mono-tech text-[9px] text-[#0C6E86]">
                     {CATEGORIES[it.category].label.toUpperCase()}
                   </div>
                   <ArrowUpRight className="absolute top-2.5 right-2.5 w-5 h-5 text-[#0891B2]/0 group-hover:text-[#0891B2] transition-colors" />
                 </div>
                 <div className="p-5 h-40 overflow-hidden">
-                  <span className="font-mono-tech text-[10px] text-[#8A95A0] uppercase tracking-wider">REALIZACJA</span>
+                  <span className="font-mono-tech text-[10px] text-[#616B75] uppercase tracking-wider">REALIZACJA</span>
                   <h3 className="mt-1 text-[#0A0E14] font-semibold text-[16px] line-clamp-2">{it.title}</h3>
                   <p className="mt-3 text-[13px] text-[#5A6770] leading-relaxed line-clamp-2">
-                    <span className="text-[#0891B2]">Naprawa:</span> {it.fix}
+                    <span className="text-[#0C6E86]">Naprawa:</span> {it.fix}
                   </p>
                 </div>
               </Link>

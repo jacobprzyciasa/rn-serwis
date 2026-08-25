@@ -11,7 +11,7 @@ export default function Reviews() {
         <Reveal>
           <div className="text-center max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
-              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+              <span className="font-mono-tech text-[12px] text-[#0C6E86] font-semibold">
                 OPINIE
               </span>
             </div>

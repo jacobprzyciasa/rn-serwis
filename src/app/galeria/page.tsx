@@ -32,14 +32,14 @@ export default async function GaleriaPage() {
     <main className="relative py-28 lg:py-36 tech-grid-bg">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <Reveal>
-          <nav aria-label="Breadcrumb" className="font-mono-tech text-[11px] text-[#8A95A0]">
+          <nav aria-label="Breadcrumb" className="font-mono-tech text-[11px] text-[#616B75]">
             <Link href="/" className="hover:text-[#0891B2] transition-colors">Start</Link>
             <span className="mx-2">/</span>
             <span className="text-[#5A6770]">Galeria</span>
           </nav>
 
           <div className="mt-5 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
-            <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">GALERIA</span>
+            <span className="font-mono-tech text-[12px] text-[#0C6E86] font-semibold">GALERIA</span>
           </div>
           <h1 className="mt-4 text-[#0A0E14] font-extrabold tracking-tight text-3xl lg:text-[2.6rem] leading-[1.1] max-w-2xl">
             Zdjęcia z serwisu

@@ -7,7 +7,7 @@ import { PHONE, PHONE_TEL } from "@/utils/constants";
 import Reveal from "./Reveal";
 
 const INPUT_CLS =
-  "w-full bg-transparent border-b border-black/15 focus:border-[#0891B2] py-3 text-[#0A0E14] placeholder:text-[#9AA4AE] outline-none transition-colors text-[15px]";
+  "w-full bg-transparent border-b border-black/15 focus:border-[#0891B2] py-3 text-[#0A0E14] placeholder:text-[#616B75] outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0891B2] transition-colors text-[15px]";
 
 type FormState = {
   name: string;
@@ -88,7 +88,7 @@ export default function Contact({ compact = false }: { compact?: boolean }) {
         <Reveal>
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
-              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+              <span className="font-mono-tech text-[12px] text-[#0C6E86] font-semibold">
                 KONTAKT
               </span>
             </div>
@@ -117,7 +117,7 @@ export default function Contact({ compact = false }: { compact?: boolean }) {
                       setSent(false);
                       setForm(EMPTY_FORM);
                     }}
-                    className="mt-6 text-[#0891B2] text-sm font-medium hover:underline"
+                    className="mt-6 text-[#0C6E86] text-sm font-medium hover:underline"
                   >
                     Wyślij kolejne zapytanie
                   </button>
@@ -178,7 +178,7 @@ export default function Contact({ compact = false }: { compact?: boolean }) {
                   <button
                     type="submit"
                     disabled={!valid || loading}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-md bg-[#0891B2] text-white font-bold text-[15px] hover:bg-[#0E7A95] active:scale-[0.99] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.18)] disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-md bg-[#0E7A95] text-white font-bold text-[15px] hover:bg-[#0A6880] active:scale-[0.99] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.18)] disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none"
                   >
                     {loading ? "Wysyłanie…" : "Wyślij zapytanie"}
                     {!loading && <Send className="w-4 h-4" strokeWidth={2.2} />}

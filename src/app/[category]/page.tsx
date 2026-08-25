@@ -11,6 +11,7 @@ import {
   isCategorySlug,
 } from "@/data/realizations";
 import { SITE_URL } from "@/utils/constants";
+import { ctfImg } from "@/utils/image";
 
 // Extra content shown only on the "straz" category page — the PSP/OSP offer
 // is much richer than a generic category blurb, so it gets a dedicated block
@@ -87,14 +88,14 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
 
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <Reveal>
-          <nav aria-label="Breadcrumb" className="font-mono-tech text-[11px] text-[#8A95A0]">
+          <nav aria-label="Breadcrumb" className="font-mono-tech text-[11px] text-[#616B75]">
             <Link href="/" className="hover:text-[#0891B2] transition-colors">Start</Link>
             <span className="mx-2">/</span>
             <span className="text-[#5A6770]">{info.label}</span>
           </nav>
 
           <div className="mt-5 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
-            <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+            <span className="font-mono-tech text-[12px] text-[#0C6E86] font-semibold">
               REALIZACJE — {info.label.toUpperCase()}
             </span>
           </div>
@@ -136,7 +137,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                     </li>
                   ))}
                 </ul>
-                <p className="mt-5 text-[13px] text-[#8A95A0] leading-relaxed">
+                <p className="mt-5 text-[13px] text-[#616B75] leading-relaxed">
                   Działam lokalnie (Sosnowiec i okolice, z możliwością dojazdu) oraz
                   ogólnopolsko - naprawy realizuję również wysyłkowo.
                 </p>
@@ -161,8 +162,9 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                   <div className="relative aspect-[4/3] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={it.image}
+                      src={ctfImg(it.image, 600)}
                       alt={it.title}
+                      loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-white via-transparent to-transparent" />
@@ -171,7 +173,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                   <div className="p-5 h-44 overflow-hidden">
                     <time
                       dateTime={it.date}
-                      className="font-mono-tech text-[10px] text-[#8A95A0] uppercase tracking-wider"
+                      className="font-mono-tech text-[10px] text-[#616B75] uppercase tracking-wider"
                     >
                       {new Date(it.date).toLocaleDateString("pl-PL", {
                         year: "numeric",
@@ -180,7 +182,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                     </time>
                     <h2 className="mt-1 text-[#0A0E14] font-semibold text-[16px] line-clamp-2">{it.title}</h2>
                     <p className="mt-3 text-[13px] text-[#5A6770] leading-relaxed line-clamp-3">
-                      <span className="text-[#0891B2]">Naprawa:</span> {it.fix}
+                      <span className="text-[#0C6E86]">Naprawa:</span> {it.fix}
                     </p>
                   </div>
                 </Link>

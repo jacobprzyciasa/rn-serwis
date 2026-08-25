@@ -20,7 +20,7 @@ export default function CTA() {
               <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
                 <a
                   href={`tel:${PHONE_TEL}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-md bg-[#0891B2] text-white font-bold text-[15px] hover:bg-[#0E7A95] active:scale-[0.98] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.22)]"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-md bg-[#0E7A95] text-white font-bold text-[15px] hover:bg-[#0A6880] active:scale-[0.98] transition-all shadow-[0_10px_32px_rgba(8,145,178,0.22)]"
                 >
                   <Phone className="w-5 h-5" strokeWidth={2.4} />
                   Zadzwoń {PHONE}

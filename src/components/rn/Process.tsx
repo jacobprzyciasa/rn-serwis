@@ -14,7 +14,7 @@ export default function Process() {
         <Reveal>
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
-              <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">
+              <span className="font-mono-tech text-[12px] text-[#0C6E86] font-semibold">
                 PROCES
               </span>
             </div>
@@ -32,11 +32,11 @@ export default function Process() {
               <Reveal key={s.n} delay={i * 0.1}>
                 <div className="relative">
                   <div className="flex lg:flex-col items-center lg:items-start gap-4 lg:gap-0">
-                    <span className="relative grid place-items-center w-14 h-14 rounded-full bg-white border border-[#0891B2]/30 text-[#0891B2] font-mono-tech font-semibold text-lg shrink-0 z-10">
+                    <span className="relative grid place-items-center w-14 h-14 rounded-full bg-white border border-[#0891B2]/30 text-[#0C6E86] font-mono-tech font-semibold text-lg shrink-0 z-10">
                       {s.n}
                     </span>
                     {/* vertical connector mobile */}
-                    {i < STEPS.length  && (
+                    {i < STEPS.length - 1 && (
                       <div className="lg:hidden flex-1 h-px bg-linear-to-r from-[#0891B2]/30 to-transparent" />
                     )}
                   </div>

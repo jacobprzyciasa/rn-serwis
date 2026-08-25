@@ -3,8 +3,6 @@ import Reveal from "./Reveal";
 import Image from "next/image";
 import expertise from "../../../public/expertise.jpg";
 
-const WORKSTATION = "https://media.base44.com/images/public/6a82d6c0df5c8c71096f3b12/035b71127_generated_c275d0d0.png";
-
 const POINTS = [
   "Elektronika przemysłowa i specjalistyczna",
   "Indywidualne podejście do każdej naprawy",
@@ -20,7 +18,7 @@ export default function About() {
           <Reveal>
             <div>
               <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
-                <span className="font-mono-tech text-[12px] text-[#0891B2] font-semibold">25+ LAT DOŚWIADCZENIA</span>
+                <span className="font-mono-tech text-[12px] text-[#0C6E86] font-semibold">25+ LAT DOŚWIADCZENIA</span>
               </div>
               <h2 className="mt-5 text-[#0A0E14] font-extrabold tracking-tight text-3xl lg:text-[2.6rem] leading-[1.1]">
                 Doświadczenie, którego nie da się zastąpić
@@ -45,11 +43,12 @@ export default function About() {
 
           <Reveal delay={0.15}>
             <div className="relative">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/10">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+              <div className="relative aspect-4/3 rounded-2xl overflow-hidden border border-black/10">
                 <Image
                   src={expertise}
                   alt="Profesjonalne stanowisko serwisowe RN Serwis Elektroniki"
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
