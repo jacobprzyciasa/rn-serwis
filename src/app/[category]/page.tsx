@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import Reveal from "@/components/rn/Reveal";
 import CTA from "@/components/rn/CTA";
 import {
@@ -11,6 +11,24 @@ import {
   isCategorySlug,
 } from "@/data/realizations";
 import { SITE_URL } from "@/utils/constants";
+
+// Extra content shown only on the "straz" category page — the PSP/OSP offer
+// is much richer than a generic category blurb, so it gets a dedicated block
+// instead of forcing every category into the same shape.
+const STRAZ_TRUST_POINTS = [
+  "Doświadczenie: kilkadziesiąt udanych napraw w jednostkach na terenie województwa śląskiego.",
+  "Błyskawiczny czas reakcji: naprawę realizuję zazwyczaj w ciągu 1 dnia roboczego.",
+  "Elastyczne płatności: znam procedury obiegu dokumentacji w budżetówce, wystawiam faktury z odroczonym terminem płatności.",
+  "Gwarancja na każdą wykonaną naprawę.",
+  "Prowadzę legalną działalność gospodarczą.",
+];
+
+const STRAZ_EQUIPMENT = [
+  "Modulatory i belki sygnalizacyjne (Federal Signal, Gamet, Elektra, Elfir)",
+  "Oświetlenie dodatkowe i robocze",
+  "Urządzenia przenośne, mierniki, detektory i kamery",
+  "Systemy powiadamiania z wyświetlaczami (DIGITEX, PLATAN, DWA)",
+];
 
 // Categories are a fixed set of 4 — unknown ones should 404, not render
 // on-demand. Realization *lists* within a category still come from
@@ -87,6 +105,50 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
             {info.description}
           </p>
         </Reveal>
+
+        {category === "straz" && (
+          <Reveal delay={0.06}>
+            <div className="mt-10 grid md:grid-cols-2 gap-5">
+              <div className="rounded-xl border border-black/8 bg-white p-6">
+                <h2 className="text-[#0A0E14] font-semibold text-lg mb-4">
+                  Dlaczego warto mi zaufać?
+                </h2>
+                <ul className="space-y-3">
+                  {STRAZ_TRUST_POINTS.map((p) => (
+                    <li key={p} className="flex items-start gap-3">
+                      <span className="mt-0.5 grid place-items-center w-5 h-5 rounded-full bg-[#0891B2]/10 text-[#0891B2] shrink-0">
+                        <Check className="w-3.5 h-3.5" strokeWidth={3} />
+                      </span>
+                      <span className="text-[#5A6770] text-[14px] leading-relaxed">{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl border border-black/8 bg-white p-6">
+                <h2 className="text-[#0A0E14] font-semibold text-lg mb-4">
+                  Dodatkowo serwisuję wyposażenie pojazdów bojowych
+                </h2>
+                <ul className="space-y-2.5">
+                  {STRAZ_EQUIPMENT.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-[14px] text-[#5A6770]">
+                      <span className="mt-2 w-1 h-1 rounded-full bg-[#0891B2]/60 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 text-[13px] text-[#8A95A0] leading-relaxed">
+                  Działam lokalnie (Sosnowiec i okolice, z możliwością dojazdu) oraz
+                  ogólnopolsko - naprawy realizuję również wysyłkowo.
+                </p>
+              </div>
+            </div>
+            <p className="mt-6 text-[#5A6770] text-[14px] leading-relaxed max-w-2xl">
+              Chętnie nawiążę też współpracę z innymi służbami mundurowymi: Zespołami
+              Ratownictwa Medycznego (Pogotowie Ratunkowe), Policją i Strażą Miejską,
+              Wojskiem oraz Służbą Więzienną.
+            </p>
+          </Reveal>
+        )}
 
         {realizations.length > 0 ? (
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

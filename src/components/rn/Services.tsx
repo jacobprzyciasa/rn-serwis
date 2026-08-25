@@ -17,7 +17,7 @@ const GROUPS: { icon: LucideIcon; title: string; items: string[] }[] = [
   {
     icon: Speaker,
     title: "Elektronika użytkowa",
-    items: ["Sprzęt audio", "AGD", "Sterowniki pralek", "Sterowniki zmywarek"],
+    items: ["Sprzęt audio vintage", "Urządzenia gastronomiczne (przemysłowe, restauracyjne)"],
   },
   {
     icon: Car,
@@ -40,7 +40,7 @@ const GROUPS: { icon: LucideIcon; title: string; items: string[] }[] = [
   },
   {
     icon: Snowflake,
-    title: "HVAC i urządzenia specjalistyczne",
+    title: "Automatyka domowa i HVAC",
     items: [
       "Sterowniki klimatyzatorów",
       "Sterowniki pomp ciepła",
@@ -51,12 +51,12 @@ const GROUPS: { icon: LucideIcon; title: string; items: string[] }[] = [
   },
   {
     icon: HeartPulse,
-    title: "Urządzenia medyczne i fitness",
+    title: "Sprzęt specjalistyczny",
     items: ["Sterowniki urządzeń fitness", "Sterowniki urządzeń medycznych"],
   },
   {
     icon: HelpCircle,
-    title: "Naprawy nietypowe",
+    title: "Urządzenia nietypowe",
     items: [
       "Urządzenia już nieprodukowane",
       "Niestandardowa elektronika",
@@ -82,8 +82,9 @@ export default function Services() {
               Szeroki zakres napraw elektroniki
             </h2>
             <p className="mt-4 text-[#5A6770] text-lg leading-relaxed">
-              Od sprzętu AGD i sprzętów audio aż po elektronikę przemysłową i
-              motoryzacyjną. Wszystko, co wymaga serwisu.
+              Od sprzętu audio vintage i urządzeń gastronomicznych, przez elektronikę
+              przemysłową i motoryzacyjną, aż po sprzęt specjalistyczny i urządzenia
+              dla służb mundurowych.
             </p>
           </div>
         </Reveal>

@@ -7,7 +7,7 @@ import { SITE_URL } from "@/utils/constants";
 
 const TITLE = "O mnie";
 const DESCRIPTION =
-  "25 lat doświadczenia w naprawie elektroniki użytkowej, przemysłowej i motoryzacyjnej. Poznaj serwis RN Serwis Elektroniki z Sosnowca.";
+  "25 lat doświadczenia w naprawie elektroniki użytkowej, przemysłowej, motoryzacyjnej oraz sprzętu audio vintage. Poznaj RN Serwis Elektroniki z Sosnowca.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -24,19 +24,23 @@ export const metadata: Metadata = {
 const REASONS = [
   {
     title: "25 lat praktyki, nie teorii",
-    desc: "Przez ćwierć wieku naprawiłem tysiące urządzeń - od prostych sterowników AGD po zaawansowaną elektronikę przemysłową. Każda kolejna nietypowa usterka to kolejne doświadczenie, którego nie da się wyczytać z instrukcji serwisowej.",
+    desc: "Przez ćwierć wieku naprawiłem tysiące urządzeń - od elektroniki użytkowej i sprzętu audio vintage po zaawansowaną elektronikę przemysłową. Każda kolejna nietypowa usterka to kolejne doświadczenie, którego nie da się wyczytać z instrukcji serwisowej.",
   },
   {
     title: "Podejmuję się tego, czego inni nie chcą",
     desc: "Specjalizuję się w przypadkach, które trafiają do mnie po tym, jak inne serwisy odmówiły naprawy - urządzenia nieprodukowane, niestandardowa elektronika, sprzęt bez dostępnej dokumentacji serwisowej.",
   },
   {
-    title: "Jeden z nielicznych serwisów obsługujących Straż Pożarną",
+    title: "Legalna działalność i gwarancja",
+    desc: "Prowadzę legalną działalność gospodarczą i na każdą wykonaną naprawę udzielam gwarancji - możesz liczyć na fakturę i rzetelne rozliczenie.",
+  },
+  {
+    title: "Jeden z nielicznych serwisów obsługujących służby mundurowe",
     desc: "Mam duże doświadczenie w naprawie systemów PowAirBox wykorzystywanych przez jednostki Państwowej Straży Pożarnej - wąska specjalizacja, którą oferuje niewiele serwisów w Polsce.",
   },
   {
     title: "Naprawy wysyłkowe z całej Polski",
-    desc: "Nie musisz mieszkać w Sosnowcu, żeby skorzystać z serwisu - urządzenie możesz wysłać kurierem z dowolnego miejsca w kraju, a w okolicach Sosnowca możliwy jest też dojazd do klienta.",
+    desc: "Nie musisz mieszkać w Sosnowcu, żeby skorzystać z serwisu - urządzenie możesz wysłać kurierem z dowolnego miejsca w kraju, a w obrębie okolicznych miast możliwy jest też dojazd do klienta.",
   },
 ];
 
@@ -58,16 +62,18 @@ export default function OMniePage() {
             25 lat naprawiam elektronikę, której inni się nie podejmują
           </h1>
           <p className="mt-6 text-[#5A6770] text-lg leading-relaxed">
-            Prowadzę RN Serwis Elektroniki w Sosnowcu - jednoosobowy serwis specjalizujący
-            się w naprawie elektroniki użytkowej, przemysłowej i motoryzacyjnej. Nie jestem
-            dużą siecią serwisową, jestem jedną osobą z ćwierćwiecznym doświadczeniem, która
-            osobiście diagnozuje i naprawia każde urządzenie, jakie do mnie trafia.
+            Oferuję usługę naprawy urządzeń elektronicznych z 25-letnim doświadczeniem.
+            Łączę pasję do technologii z rzetelną wiedzą techniczną - prowadzę RN Serwis
+            Elektroniki w Sosnowcu jako jednoosobowy serwis, więc każde urządzenie
+            osobiście diagnozuję i naprawiam od początku do końca.
           </p>
           <p className="mt-4 text-[#5A6770] text-lg leading-relaxed">
-            Pracuję z układami, których nie znajdziesz w typowym punkcie serwisowym: sterownikami
-            maszyn przemysłowych, falownikami, zasilaczami, modułami sterującymi pojazdów oraz
-            sprzętem, który - jak się okazuje - wcale nie musi trafiać na złom, gdy inni odmówią
-            naprawy.
+            Moim głównym celem jest przywracanie urządzeniom pełnej sprawności -
+            zwłaszcza tam, gdzie inni rozkładają ręce. Specjalizuję się w zaawansowanej
+            elektronice przemysłowej i użytkowej: sprzęcie audio vintage, elektronice
+            motoryzacyjnej, automatyce domowej i HVAC, maszynach budowlanych
+            i przemysłowych oraz urządzeniach unikalnych, które gdzie indziej trafiłyby
+            na złom.
           </p>
         </Reveal>
 

@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const DESCRIPTION =
-  "25 lat doświadczenia w naprawie sterowników, modułów elektronicznych, zasilaczy, falowników i urządzeń specjalistycznych. Sosnowiec i okolice, naprawy wysyłkowe.";
+  "25 lat doświadczenia w naprawie elektroniki użytkowej, przemysłowej, motoryzacyjnej oraz urządzeń dla służb mundurowych (PowAirBox). Sosnowiec i okolice, naprawy wysyłkowe.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -22,16 +22,16 @@ export const CATEGORIES: Record<CategorySlug, CategoryInfo> = {
   straz: {
     slug: "straz",
     label: "Straż",
-    title: "Naprawa elektroniki dla Straży Pożarnej",
+    title: "Serwis PowAirBox i elektroniki dla Straży Pożarnej",
     description:
-      "Serwis i naprawa sterowników oraz urządzeń wykorzystywanych przez jednostki Straży Pożarnej, w tym systemów PowAirBox.",
+      "Serwis urządzeń PowAirBox marki LEAB oraz pozostałej elektroniki pojazdów ratowniczo-gaśniczych - modulatorów, oświetlenia i systemów powiadamiania. Naprawa zwykle w ciągu 1 dnia roboczego, z gwarancją i fakturą z odroczonym terminem płatności.",
   },
   audio: {
     slug: "audio",
     label: "Audio",
-    title: "Naprawa sprzętu audio",
+    title: "Naprawa sprzętu audio vintage",
     description:
-      "Naprawa wzmacniaczy, zasilaczy i modułów sterujących sprzętu audio — od domowego po estradowy.",
+      "Naprawa wzmacniaczy, gramofonów i innego sprzętu audio vintage - przywracam klasycznemu brzmieniu dawny blask.",
   },
   motoryzacja: {
     slug: "motoryzacja",
@@ -45,7 +45,7 @@ export const CATEGORIES: Record<CategorySlug, CategoryInfo> = {
     label: "Sterowniki",
     title: "Naprawa sterowników i automatyki przemysłowej",
     description:
-      "Naprawa sterowników maszyn, falowników, zasilaczy przemysłowych oraz sterowników sprzętu AGD.",
+      "Naprawa sterowników maszyn, falowników, zasilaczy przemysłowych oraz urządzeń gastronomicznych.",
   },
 };
 
