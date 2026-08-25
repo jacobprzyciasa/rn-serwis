@@ -7,9 +7,6 @@ export interface RealizationEntrySkeleton extends EntrySkeletonType {
     title: EntryFieldTypes.Text;
     slug: EntryFieldTypes.Text;
     category: EntryFieldTypes.Text;
-    device: EntryFieldTypes.Text;
-    excerpt: EntryFieldTypes.Text;
-    problem: EntryFieldTypes.Text;
     fix: EntryFieldTypes.Text;
     photo: EntryFieldTypes.AssetLink;
     realizationDate: EntryFieldTypes.Date;

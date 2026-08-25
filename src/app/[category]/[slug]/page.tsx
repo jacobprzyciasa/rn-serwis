@@ -11,6 +11,7 @@ import {
   isCategorySlug,
 } from "@/data/realizations";
 import { PHONE, PHONE_TEL, SITE_URL } from "@/utils/constants";
+import { truncate } from "@/utils/text";
 
 // Realizations are managed by the client in Contentful, so new slugs can
 // appear between deploys — allow on-demand generation for params not known
@@ -31,15 +32,16 @@ export async function generateMetadata({
   if (!realization) return {};
 
   const url = `${SITE_URL}/${category}/${slug}`;
+  const description = truncate(realization.fix, 155);
 
   return {
     title: realization.title,
-    description: realization.excerpt,
+    description,
     alternates: { canonical: `/${category}/${slug}` },
     openGraph: {
       type: "article",
       title: realization.title,
-      description: realization.excerpt,
+      description,
       url,
       images: [{ url: realization.image }],
       publishedTime: realization.date,
@@ -65,7 +67,7 @@ export default async function RealizationPage({
     "@context": "https://schema.org",
     "@type": "Article",
     headline: realization.title,
-    description: realization.excerpt,
+    description: truncate(realization.fix, 155),
     image: [realization.image],
     datePublished: realization.date,
     dateModified: realization.date,
@@ -109,7 +111,7 @@ export default async function RealizationPage({
               {info.label}
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-[#5A6770]">{realization.device}</span>
+            <span className="text-[#5A6770]">{realization.title}</span>
           </nav>
 
           <div className="mt-5 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5">
@@ -137,22 +139,16 @@ export default async function RealizationPage({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={realization.image}
-              alt={`${realization.device} — naprawiony moduł`}
+              alt={realization.title}
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="mt-10 space-y-7">
-            <div>
-              <h2 className="text-[#0A0E14] font-semibold text-lg">Problem</h2>
-              <p className="mt-2 text-[#5A6770] text-[15px] leading-relaxed">{realization.problem}</p>
-            </div>
-            <div>
-              <h2 className="text-[#0A0E14] font-semibold text-lg">Naprawa</h2>
-              <p className="mt-2 text-[#5A6770] text-[15px] leading-relaxed">{realization.fix}</p>
-            </div>
+          <div className="mt-10">
+            <h2 className="text-[#0A0E14] font-semibold text-lg">Naprawa</h2>
+            <p className="mt-2 text-[#5A6770] text-[15px] leading-relaxed">{realization.fix}</p>
           </div>
         </Reveal>
 
@@ -200,7 +196,7 @@ export default async function RealizationPage({
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={r.image}
-                        alt={`${r.device} — naprawiony moduł`}
+                        alt={r.title}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                       />
                     </div>

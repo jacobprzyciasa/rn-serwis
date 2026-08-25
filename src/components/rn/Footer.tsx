@@ -1,5 +1,5 @@
 import { MapPin, Phone, ShieldCheck } from "lucide-react";
-import { PHONE, PHONE_TEL } from "@/utils/constants";
+import { INSTAGRAM_URL, PHONE, PHONE_TEL } from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { SUBPAGES } from "@/utils/nav"
@@ -66,6 +66,11 @@ export default function Footer() {
               <li>
                 <a href={REVIEWS_URL} target="_blank" rel="noopener noreferrer" className="text-[#5A6770] text-sm hover:text-[#0A0E14] transition-colors">
                   Google Reviews
+                </a>
+              </li>
+              <li>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-[#5A6770] text-sm hover:text-[#0A0E14] transition-colors">
+                  Instagram
                 </a>
               </li>
             </ul>

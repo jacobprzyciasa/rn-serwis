@@ -100,13 +100,13 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={it.image}
-                      alt={`${it.device} — naprawiony moduł`}
+                      alt={it.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-white via-transparent to-transparent" />
                     <ArrowUpRight className="absolute top-2.5 right-2.5 w-5 h-5 text-[#0891B2]/0 group-hover:text-[#0891B2] transition-colors" />
                   </div>
-                  <div className="p-5 h-52 overflow-hidden">
+                  <div className="p-5 h-44 overflow-hidden">
                     <time
                       dateTime={it.date}
                       className="font-mono-tech text-[10px] text-[#8A95A0] uppercase tracking-wider"
@@ -117,10 +117,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                       })}
                     </time>
                     <h2 className="mt-1 text-[#0A0E14] font-semibold text-[16px] line-clamp-2">{it.title}</h2>
-                    <p className="mt-3 text-[13px] text-[#5A6770] leading-relaxed line-clamp-2">
-                      <span className="text-[#7A8590]">Problem:</span> {it.problem}
-                    </p>
-                    <p className="mt-1.5 text-[13px] text-[#5A6770] leading-relaxed line-clamp-2">
+                    <p className="mt-3 text-[13px] text-[#5A6770] leading-relaxed line-clamp-3">
                       <span className="text-[#0891B2]">Naprawa:</span> {it.fix}
                     </p>
                   </div>

@@ -12,11 +12,8 @@ export interface CategoryInfo {
 export interface Realization {
   slug: string;
   category: CategorySlug;
-  device: string;
   title: string;
-  problem: string;
   fix: string;
-  excerpt: string;
   image: string;
   date: string;
 }
@@ -82,11 +79,8 @@ function mapEntry(entry: RealizationEntry): Realization | null {
   return {
     slug: f.slug,
     category: f.category,
-    device: f.device,
     title: f.title,
-    problem: f.problem,
     fix: f.fix,
-    excerpt: f.excerpt,
     image: fileUrl.startsWith("//") ? `https:${fileUrl}` : fileUrl,
     date: f.realizationDate.slice(0, 10),
   };

@@ -10,3 +10,5 @@ export const BUSINESS_ADDRESS = {
   postalCode: "41-219",
   addressCountry: "PL",
 };
+
+export const INSTAGRAM_URL = "https://www.instagram.com/rn_serwis_elektroniki/";
