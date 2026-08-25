@@ -13,8 +13,22 @@ export interface RealizationEntrySkeleton extends EntrySkeletonType {
   };
 }
 
+export interface PhotoGalleryEntrySkeleton extends EntrySkeletonType {
+  contentTypeId: string;
+  fields: {
+    // The field holds multiple images per entry (Contentful "Array" of Asset
+    // links), not a single photo — confirmed via the Content Types API.
+    photoGallery: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
+  };
+}
+
 const REALIZATION_CONTENT_TYPE =
   process.env.CONTENTFUL_REALIZATION_CONTENT_TYPE || "realization";
+// Contentful strips diacritics when auto-generating the content type's API
+// ID from its display name ("Zdjęcie" -> "zdjcie") — confirmed via the
+// Content Types API rather than guessed.
+const PHOTO_GALLERY_CONTENT_TYPE =
+  process.env.CONTENTFUL_PHOTO_GALLERY_CONTENT_TYPE || "zdjcie";
 
 let client: ReturnType<typeof createClient> | undefined;
 
@@ -51,3 +65,15 @@ export const fetchRealizationEntries = cache(async () => {
 // generic to the full ChainModifiers union and widens `fields` to include the
 // withAllLocales variant, which doesn't match what this client returns.
 export type RealizationEntry = Awaited<ReturnType<typeof fetchRealizationEntries>>[number];
+
+// No custom date field on this content type — order by entry creation time,
+// which every entry has regardless of its fields.
+export const fetchPhotoGalleryEntries = cache(async () => {
+  const res = await getClient().getEntries<PhotoGalleryEntrySkeleton>({
+    content_type: PHOTO_GALLERY_CONTENT_TYPE,
+    order: ["-sys.createdAt"],
+  });
+  return res.items;
+});
+
+export type PhotoGalleryEntry = Awaited<ReturnType<typeof fetchPhotoGalleryEntries>>[number];

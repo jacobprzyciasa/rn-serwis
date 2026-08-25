@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { ChevronDown, Menu, X, Phone } from "lucide-react";
 import { PHONE, PHONE_TEL } from "@/utils/constants";
-import { SUBPAGES } from "@/utils/nav"
+import { NAV_ITEMS, SUBPAGES, isNavDropdown } from "@/utils/nav"
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../../public/rn_final_combo_white_trans.png";
@@ -41,16 +41,41 @@ export default function Navbar() {
           </Link>
 
           <ul className="hidden lg:flex items-center gap-1">
-            {SUBPAGES.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="px-3.5 py-2 text-[13.5px] font-medium text-[#5A6770] hover:text-[#0A0E14] transition-colors rounded-md hover:bg-black/5"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
+            {NAV_ITEMS.map((item) =>
+              isNavDropdown(item) ? (
+                <li key={item.label} className="relative group">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1 px-3.5 py-2 text-[13.5px] font-medium text-[#5A6770] hover:text-[#0A0E14] transition-colors rounded-md hover:bg-black/5"
+                  >
+                    {item.label}
+                    <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" strokeWidth={2} />
+                  </button>
+                  <div className="absolute left-0 top-full pt-2 opacity-0 invisible -translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+                    <div className="min-w-47.5 rounded-lg border border-black/10 bg-white shadow-[0_12px_32px_rgba(10,14,20,0.12)] p-1.5">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-3.5 py-2.5 rounded-md text-[13.5px] font-medium text-[#5A6770] hover:text-[#0A0E14] hover:bg-black/5 transition-colors"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+              ) : (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="px-3.5 py-2 text-[13.5px] font-medium text-[#5A6770] hover:text-[#0A0E14] transition-colors rounded-md hover:bg-black/5"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ),
+            )}
           </ul>
 
           <div className="flex items-center gap-2">
