@@ -36,7 +36,7 @@ export default function Process() {
                       {s.n}
                     </span>
                     {/* vertical connector mobile */}
-                    {i < STEPS.length - 1 && (
+                    {i < STEPS.length  && (
                       <div className="lg:hidden flex-1 h-px bg-linear-to-r from-[#0891B2]/30 to-transparent" />
                     )}
                   </div>
