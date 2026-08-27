@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const REASONS = [
   {
-    title: "25 lat praktyki, nie teorii",
+    title: "25 lat praktyki",
     desc: "Przez ćwierć wieku naprawiłem tysiące urządzeń - od elektroniki użytkowej i sprzętu audio vintage po zaawansowaną elektronikę przemysłową. Każda kolejna nietypowa usterka to kolejne doświadczenie, którego nie da się wyczytać z instrukcji serwisowej.",
   },
   {
