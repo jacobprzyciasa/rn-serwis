@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/rn/Navbar";
 import Footer from "@/components/rn/Footer";
 import MobileBar from "@/components/rn/MobileBar";
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <Footer />
         <MobileBar />
+        <Analytics />
       </body>
     </html>
   );
