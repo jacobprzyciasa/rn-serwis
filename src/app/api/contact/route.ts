@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const FROM_EMAIL =
-  process.env.CONTACT_FROM_EMAIL ?? "RN Serwis Elektroniki <onboarding@resend.dev>";
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "rnserwiswebsite@gmail.com";
+  process.env.CONTACT_FROM_EMAIL ?? "RN Serwis Elektroniki <kontakt@rnserwiselektroniki.pl>";
+const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "serwis.elektroniki112@gmail.com";
 const MAX_FILE_SIZE = 8 * 1024 * 1024; // 8 MB
 
 export async function POST(request: Request) {
