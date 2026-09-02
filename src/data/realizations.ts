@@ -15,13 +15,14 @@ export interface Realization {
   title: string;
   fix: string;
   image: string;
+  additionalPhotos: string[];
   date: string;
 }
 
 export const CATEGORIES: Record<CategorySlug, CategoryInfo> = {
   straz: {
     slug: "straz",
-    label: "Straż",
+    label: "Straż Pożarna",
     title: "Serwis PowAirBox i elektroniki dla Straży Pożarnej",
     description:
       "Serwis urządzeń PowAirBox marki LEAB oraz pozostałej elektroniki pojazdów ratowniczo-gaśniczych - modulatorów, oświetlenia i systemów powiadamiania. Naprawa zwykle w ciągu 1 dnia roboczego, z gwarancją i fakturą z odroczonym terminem płatności.",
@@ -76,12 +77,24 @@ function mapEntry(entry: RealizationEntry): Realization | null {
     return null;
   }
 
+  const additionalPhotos = (f.additionalPhotos ?? [])
+    .map((asset) => {
+      const additionalFileUrl = asset && "fields" in asset ? asset.fields?.file?.url : undefined;
+      return additionalFileUrl
+        ? additionalFileUrl.startsWith("//")
+          ? `https:${additionalFileUrl}`
+          : additionalFileUrl
+        : null;
+    })
+    .filter((url): url is string => url !== null);
+
   return {
     slug: f.slug,
     category: f.category,
     title: f.title,
     fix: f.fix,
     image: fileUrl.startsWith("//") ? `https:${fileUrl}` : fileUrl,
+    additionalPhotos,
     date: f.realizationDate.slice(0, 10),
   };
 }

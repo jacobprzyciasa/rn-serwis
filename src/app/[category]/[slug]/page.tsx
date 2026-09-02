@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
+import RealizationCarousel from "@/components/rn/RealizationCarousel";
 import Reveal from "@/components/rn/Reveal";
 import {
   CATEGORIES,
@@ -136,13 +137,10 @@ export default async function RealizationPage({
         </Reveal>
 
         <Reveal delay={0.08}>
-          <div className="mt-8 relative aspect-video rounded-2xl overflow-hidden border border-black/10">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={ctfImg(realization.image, 1200)}
+          <div className="mt-8">
+            <RealizationCarousel
+              images={[realization.image, ...realization.additionalPhotos]}
               alt={realization.title}
-              loading="eager"
-              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
         </Reveal>

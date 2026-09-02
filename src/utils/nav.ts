@@ -15,7 +15,7 @@ export function isNavDropdown(item: NavItem): item is NavDropdown {
 }
 
 export const CATEGORY_LINKS: NavLink[] = [
-  { label: "Straż", href: "/straz" },
+  { label: "Straż Pożarna", href: "/straz" },
   { label: "Audio", href: "/audio" },
   { label: "Motoryzacja", href: "/motoryzacja" },
   { label: "Sterowniki", href: "/sterowniki" },

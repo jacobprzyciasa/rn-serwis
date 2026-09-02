@@ -9,6 +9,9 @@ export interface RealizationEntrySkeleton extends EntrySkeletonType {
     category: EntryFieldTypes.Text;
     fix: EntryFieldTypes.Text;
     photo: EntryFieldTypes.AssetLink;
+    // Optional — same shape as PhotoGalleryEntrySkeleton's array-of-assets
+    // field below.
+    additionalPhotos?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
     realizationDate: EntryFieldTypes.Date;
   };
 }
