@@ -1,6 +1,6 @@
 import { fetchRealizationEntries, type RealizationEntry } from "@/lib/contentful";
 
-export type CategorySlug = "straz" | "audio" | "motoryzacja" | "sterowniki";
+export type CategorySlug = "straz" | "audio" | "motoryzacja" | "przemysl" | "rozne";
 
 export interface CategoryInfo {
   slug: CategorySlug;
@@ -41,12 +41,19 @@ export const CATEGORIES: Record<CategorySlug, CategoryInfo> = {
     description:
       "Diagnostyka i naprawa modułów sterujących (ECU) oraz elektroniki samochodów osobowych, ciężarowych i pojazdów specjalnych.",
   },
-  sterowniki: {
-    slug: "sterowniki",
-    label: "Sterowniki",
+  przemysl: {
+    slug: "przemysl",
+    label: "Przemysł",
     title: "Naprawa sterowników i automatyki przemysłowej",
     description:
       "Naprawa sterowników maszyn, falowników, zasilaczy przemysłowych oraz urządzeń gastronomicznych.",
+  },
+  rozne: {
+    slug: "rozne",
+    label: "Różne",
+    title: "Różne urządzenia elektroniczne",
+    description:
+      "Naprawa urządzeń elektronicznych różnych typów.",
   },
 };
 

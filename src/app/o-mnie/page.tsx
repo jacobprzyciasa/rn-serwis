@@ -95,7 +95,7 @@ export default function OMniePage() {
 
         <Reveal delay={0.1}>
           <Link
-            href="/sterowniki"
+            href="/przemysl"
             className="mt-14 inline-flex items-center gap-2 text-[#0C6E86] font-semibold text-sm hover:underline"
           >
             Zobacz moje najciekawsze realizacje

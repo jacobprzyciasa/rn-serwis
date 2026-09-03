@@ -18,7 +18,8 @@ export const CATEGORY_LINKS: NavLink[] = [
   { label: "Straż Pożarna", href: "/straz" },
   { label: "Audio", href: "/audio" },
   { label: "Motoryzacja", href: "/motoryzacja" },
-  { label: "Sterowniki", href: "/sterowniki" },
+  { label: "Przemysł", href: "/przemysl" },
+  { label: "Różne", href: "/rozne" },
 ];
 
 // Desktop nav: category pages are grouped under a single "Realizacje" dropdown.

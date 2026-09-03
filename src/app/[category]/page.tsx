@@ -31,7 +31,7 @@ const STRAZ_EQUIPMENT = [
   "Systemy powiadamiania z wyświetlaczami (DIGITEX, PLATAN, DWA)",
 ];
 
-// Categories are a fixed set of 4 — unknown ones should 404, not render
+// Categories are a fixed set of 5 — unknown ones should 404, not render
 // on-demand. Realization *lists* within a category still come from
 // Contentful, so refresh the cached page periodically.
 export const dynamicParams = false;
